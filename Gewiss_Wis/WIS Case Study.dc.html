@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#FAFAFA;color:#000;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55;}
+  a{color:#DB3700;text-decoration:none;}
+  a:hover{color:#A32900;}
+  ::selection{background:#FFD3BF;color:#A32900;}
+  @keyframes wisFloat{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-16px) rotate(1deg);}}
+  @keyframes wisPulse{0%,100%{opacity:.5;transform:scale(1);}50%{opacity:.9;transform:scale(1.08);}}
+  @keyframes wisWatchBase{0%,35.714%{opacity:1;}46.429%,100%{opacity:0;}}
+  @keyframes wisWatchNext{0%,35.714%{opacity:0;transform:translateY(10px);}46.429%,100%{opacity:1;transform:translateY(0);}}
+  @media (max-width:760px){
+    #problem-grid{grid-template-columns:1fr !important;}
+  }
+</style>
+</helmet>
+
+<div style="width:100%;overflow:hidden;">
+
+  <!-- TOP BAR -->
+  <div style="padding:26px clamp(24px,6vw,80px);display:flex;align-items:center;justify-content:flex-end;gap:16px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="assets/logo-talent-garden.png" alt="Talent Garden Pordenone" style="height:28px;width:auto;object-fit:contain;" />
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 1 — HERO ═══ -->
+  <section data-screen-label="Hero" style="max-width:1180px;margin:0 auto;padding:clamp(30px,5vw,60px) clamp(24px,6vw,80px) clamp(70px,9vw,120px);">
+    <div style="display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(32px,5vw,72px);align-items:start;">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#DB3700;margin-bottom:22px;">AI Home Agent</div>
+        <h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(72px,13vw,148px);line-height:0.86;letter-spacing:-0.04em;margin:0 0 26px;">WIS</h1>
+        <p style="font-size:clamp(21px,2.6vw,30px);line-height:1.28;font-weight:500;letter-spacing:-0.01em;max-width:520px;margin:0 0 34px;text-wrap:balance;">A smart home AI agent designed around <span style="color:#DB3700;">trust</span>, not control.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:38px;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:0.02em;padding:7px 13px;border-radius:999px;background:#FFEEE6;color:#A32900;">Project work · real client brief</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:0.02em;padding:7px 13px;border-radius:999px;background:#F5F5F6;color:#3C3839;">Design sprint · 4 days</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:0.02em;padding:7px 13px;border-radius:999px;background:#F5F5F6;color:#3C3839;">Team of 6</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:0.02em;padding:7px 13px;border-radius:999px;background:#F5F5F6;color:#3C3839;">UX Research &amp; AI-assisted prototyping</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img src="uploads/QRCODE_APP.png" alt="QR code to the WIS prototype" style="width:100px;height:100px;object-fit:contain;border-radius:10px;border:1px solid #E9E8E8;" />
+          <div style="display:flex;flex-direction:column;gap:6px;max-width:260px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#747272;letter-spacing:0.02em;">Scan to try the live prototype</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A4A3A4;letter-spacing:0.02em;line-height:1.4;">Add it to your Home Screen for the full app view</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;display:flex;justify-content:center;align-items:center;min-height:440px;">
+        <div style="position:absolute;width:min(78%,360px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#FFEEE6 0%,#FFF6F2 55%,transparent 72%);"></div>
+        <div style="position:relative;width:min(72%,258px);z-index:2;">
+          <img src="screen/home_chat.png" alt="Home · your day at a glance" style="width:100%;height:auto;display:block;border-radius:40px;box-shadow:0 30px 60px -20px rgba(163,41,0,0.28), 0 8px 20px -8px rgba(0,0,0,0.25);" />
+        </div>
+        <div style="position:absolute;top:-6%;right:-10%;width:min(66%,272px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#FFD9C7 0%,#FFE7DC 46%,rgba(255,238,230,0) 72%);z-index:2;"></div>
+        <img src="assets/wis-avatar.png" alt="WIS agent" style="position:absolute;top:4%;right:-4%;width:min(50%,214px);z-index:3;filter:drop-shadow(0 16px 30px rgba(163,41,0,0.38));animation:wisFloat 7s ease-in-out infinite;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 2 — THE PROBLEM ═══ -->
+  <section data-screen-label="The problem" style="background:#fff;border-top:1px solid #E9E8E8;border-bottom:1px solid #E9E8E8;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(24px,6vw,80px);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#DB3700;margin-bottom:20px;">The problem</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 40px;max-width:20ch;text-wrap:balance;">Smart home apps became control panels.</h2>
+      <div id="problem-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);align-items:stretch;">
+        <div style="display:flex;flex-direction:column;justify-content:flex-start;gap:22px;max-width:440px;">
+          <p style="font-size:18px;line-height:1.6;color:#3C3839;margin:0;">Today's interfaces are dominated by alarms, settings and warnings. The benefits stay invisible.</p>
+          <p style="font-size:18px;line-height:1.6;color:#3C3839;margin:0;">Users don't want another system to manage. They want a home that adapts to them.</p>
+        </div>
+
+        <div style="background:#1a1310;border-radius:24px;padding:clamp(36px,4vw,52px);display:flex;flex-direction:column;justify-content:flex-start;">
+          <blockquote style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(24px,3vw,38px);line-height:1.14;letter-spacing:-0.02em;color:#fff;margin:0 0 20px;text-wrap:balance;">"I don't want to control every device. I want to trust my home."</blockquote>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#F48457;letter-spacing:0.03em;">Andrea, 45 · reference persona</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,7vw,90px) clamp(24px,6vw,80px);">
+      <div style="border-left:3px solid #DB3700;padding-left:26px;max-width:760px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#747272;margin-bottom:12px;">The challenge</div>
+        <p style="font-size:clamp(19px,2.3vw,26px);line-height:1.4;font-weight:500;margin:0;letter-spacing:-0.01em;">In 4 days, design the <span style="color:#DB3700;">relationship</span> between a person and an AI agent that runs their home. Not a better control panel, but an interface for <span style="color:#DB3700;">trust</span>: notifications that build <strong>calm</strong> in the everyday, <strong>value</strong> made visible, and <strong>control</strong> the user chooses.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 3 — DISCOVERY ═══ -->
+  <section data-screen-label="Discovery" style="background:#FFF6F2;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(24px,6vw,80px);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#DB3700;margin-bottom:20px;">Discovery</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 32px;">Researching where trust lives.</h2>
+      <p style="font-size:18px;line-height:1.6;color:#3C3839;max-width:680px;margin:0 0 56px;">Trust is built or lost in daily moments. We focused on the three where it's most at stake: comfort, energy, safety. With only four days, we compressed the research: competitor benchmarking and desk analysis, accelerated with AI-assisted synthesis.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:56px;">
+        <!-- COMFORT -->
+        <div style="background:#F5EEE3;border-radius:22px;padding:32px 28px;display:flex;flex-direction:column;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#8B6B47;margin-bottom:22px;">Comfort</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:23px;line-height:1.18;letter-spacing:-0.015em;color:#3C2A18;margin-bottom:auto;padding-bottom:28px;">A home earns trust when it works without being noticed.</div>
+          <div style="display:flex;align-items:baseline;gap:9px;border-top:1px solid rgba(139,107,71,0.22);padding-top:16px;"><span style="color:#8B6B47;font-size:15px;">→</span><span style="font-weight:600;font-size:15px;color:#8B6B47;">Silent in routine.</span></div>
+        </div>
+        <!-- ENERGY (led by me) -->
+        <div style="background:#EEF4B0;border-radius:22px;padding:32px 28px;display:flex;flex-direction:column;position:relative;outline:2px solid #4C5408;outline-offset:-2px;">
+          <div style="position:absolute;top:18px;right:18px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#EEF4B0;background:#4C5408;padding:4px 9px;border-radius:999px;">My stream</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#4C5408;margin-bottom:22px;">Energy</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:23px;line-height:1.18;letter-spacing:-0.015em;color:#363B04;margin-bottom:auto;padding-bottom:28px;">A home earns trust when it gives something back.</div>
+          <div style="display:flex;align-items:baseline;gap:9px;border-top:1px solid rgba(76,84,8,0.28);padding-top:16px;"><span style="color:#4C5408;font-size:15px;">→</span><span style="font-weight:600;font-size:15px;color:#4C5408;">Savings you can't see don't exist.</span></div>
+        </div>
+        <!-- SAFETY -->
+        <div style="background:#D4F0F7;border-radius:22px;padding:32px 28px;display:flex;flex-direction:column;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#1B5E80;margin-bottom:22px;">Safety</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:23px;line-height:1.18;letter-spacing:-0.015em;color:#0E3F57;margin-bottom:auto;padding-bottom:28px;">A home earns trust when you can count on it to protect you.</div>
+          <div style="display:flex;align-items:baseline;gap:9px;border-top:1px solid rgba(27,94,128,0.24);padding-top:16px;"><span style="color:#1B5E80;font-size:15px;">→</span><span style="font-weight:600;font-size:15px;color:#1B5E80;">Present in critical moments.</span></div>
+        </div>
+      </div>
+
+      <div style="background:#1a1310;border-radius:22px;padding:clamp(32px,4vw,52px);display:flex;align-items:center;gap:20px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#F48457;letter-spacing:0.1em;text-transform:uppercase;flex-shrink:0;">The gap</span>
+        <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(20px,2.6vw,30px);line-height:1.25;letter-spacing:-0.02em;color:#fff;margin:0;text-wrap:balance;">No competitor observes, learns and proposes. They all report. That gap became our direction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 4 — SOLUTION 01 ═══ -->
+  <section data-screen-label="Solution 01" style="background:#fff;border-top:1px solid #E9E8E8;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(24px,6vw,80px);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#DB3700;margin-bottom:20px;">The solution / 01 · Comfort</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 28px;max-width:15ch;text-wrap:balance;">It interrupts only when it matters.</h2>
+
+      <style>
+        #sol01-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:clamp(32px,5vw,72px);align-items:center;}
+        #sol01-devices{display:flex;justify-content:center;align-items:center;gap:clamp(18px,2.6vw,38px);flex-wrap:nowrap;}
+        #sol01-devices .sol01-watch{width:126px;height:auto;display:block;flex-shrink:0;filter:drop-shadow(0 18px 30px rgba(163,41,0,0.22));}
+        #sol01-devices .sol01-phone-img{width:150px;height:auto;display:block;flex-shrink:0;filter:drop-shadow(0 18px 30px rgba(163,41,0,0.22));}
+        #sol01-devices .sol01-phone-embed{position:relative;width:150px;height:325px;overflow:hidden;flex-shrink:0;filter:drop-shadow(0 18px 30px rgba(163,41,0,0.22));}
+        #sol01-devices .sol01-phone-embed iframe{width:375px;height:812px;border:0;display:block;transform:scale(0.4);transform-origin:top left;pointer-events:none;}
+        @media (max-width:900px){
+          #sol01-grid{grid-template-columns:1fr;}
+          #sol01-grid > div:first-child{margin-bottom:40px;}
+        }
+        @media (max-width:560px){
+          #sol01-devices{flex-wrap:wrap;gap:26px;}
+        }
+      </style>
+
+      <div id="sol01-grid">
+        <div>
+          <p style="font-size:18px;line-height:1.6;color:#3C3839;max-width:440px;margin:0;">WIS stays quiet and reaches out only when something really needs you, like a delivery at the door. Because it asks for your attention so rarely, every notification counts, so you stop checking and trust it to surface what matters.</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div id="sol01-devices">
+            <!-- 1 · Watch -->
+            <img class="sol01-watch" src="screen/watch.png" alt="WIS proposes handling the delivery, on Apple Watch" />
+
+            <!-- 2 · Phone home-screen widget, live HTML -->
+            <div class="sol01-phone-embed">
+              <iframe src="widget-iphone-corriere.html" title="WIS home-screen widget: courier at the door" scrolling="no"></iframe>
+            </div>
+
+            <!-- 3 · Phone notification detail, in iPhone mockup (matches hero) -->
+            <div style="position:relative;width:150px;aspect-ratio:264/548;background:#0f0d0d;border-radius:23px;padding:6px;box-shadow:0 18px 30px rgba(163,41,0,0.22);border:1px solid rgba(255,255,255,0.06);flex-shrink:0;">
+              <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);width:44px;height:4px;border-radius:2px;background:#2a2626;z-index:3;"></div>
+              <div style="position:relative;width:100%;height:100%;border-radius:18px;overflow:hidden;">
+                <img src="assets/IMG_4674.PNG" alt="WIS notification detail in the iPhone Notification Center" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+            </div>
+          </div>
+          <p style="text-align:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#A4A3A4;letter-spacing:0.04em;margin:44px 0 0;">The same quiet signal, wherever you are</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 5 — SOLUTION 02 ═══ -->
+  <section data-screen-label="Solution 02" style="background:#FFF6F2;border-top:1px solid #E9E8E8;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(24px,6vw,80px);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#DB3700;margin-bottom:20px;">The solution / 02 · Energy</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 16px;max-width:16ch;text-wrap:balance;">The home gives back. WIS makes it visible.</h2>
+      <p style="font-size:18px;line-height:1.6;color:#3C3839;margin:0 0 48px;max-width:520px;">Concrete savings every month, for you and for the planet.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 0.85fr;gap:clamp(32px,5vw,72px);align-items:start;">
+        <div>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px;">
+            <div style="background:#fff;border:1px solid #E9E8E8;border-radius:18px;padding:22px 24px;min-width:150px;flex:1;">
+              <div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:32px;color:#DB3700;letter-spacing:-0.02em;">€29</div>
+              <div style="font-size:13px;color:#747272;margin-top:4px;">freed this month</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E9E8E8;border-radius:18px;padding:22px 24px;min-width:150px;flex:1;">
+              <div style="font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:32px;color:#0B5C53;letter-spacing:-0.02em;">18 kg</div>
+              <div style="font-size:13px;color:#747272;margin-top:4px;">CO₂ avoided</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:22px;max-width:520px;">
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#DB3700;margin-bottom:8px;">Challenges</div>
+              <p style="font-size:16px;line-height:1.55;color:#3C3839;margin:0;">Challenges turn saving into a game, a light nudge to do a bit more across light, climate, time and air.</p>
+            </div>
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#DB3700;margin-bottom:8px;">The detail</div>
+              <p style="font-size:16px;line-height:1.55;color:#3C3839;margin:0;">Every challenge shows what it's worth, how far you are, and what you gain.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:-28px;">
+          <div style="width:min(104%,380px);display:flex;justify-content:center;align-items:flex-end;">
+            <img src="screen/elenco%20sfide.png" alt="Value tab · challenges list" style="width:64%;display:block;transform:rotate(-7deg);position:relative;z-index:1;margin-right:-10%;filter:drop-shadow(0 20px 34px rgba(163,41,0,0.28));" />
+            <img src="screen/sfide.png" alt="Challenge detail · what it's worth, how far you are, what you gain" style="width:64%;display:block;transform:rotate(7deg);position:relative;z-index:2;margin-left:-3%;filter:drop-shadow(0 20px 34px rgba(163,41,0,0.28));" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Solution 03" style="background:#fff;border-top:1px solid #E9E8E8;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(24px,6vw,80px);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#DB3700;margin-bottom:20px;">The solution / 03 · Safety</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 44px;max-width:24ch;text-wrap:balance;">Trust it as much as you choose.</h2>
+
+      <div style="display:grid;grid-template-columns:0.85fr 1fr;gap:clamp(32px,5vw,72px);align-items:center;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+          <div style="width:min(72%,236px);"><img src="screen/profilo.png" alt="Profile · autonomy levels" style="width:100%;height:auto;display:block;" /></div>
+        </div>
+        <div>
+          <p style="font-size:18px;line-height:1.6;color:#3C3839;margin:0 0 28px;max-width:500px;">Feeling safe means trusting WIS to act when it matters. You set how far that trust goes, across three levels.<br><strong style="color:#A32900;font-weight:600;">Control never disappears:</strong> it gets delegated, consciously.</p>
+          <div style="display:flex;flex-direction:column;gap:12px;max-width:460px;">
+            <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #E9E8E8;border-radius:16px;padding:16px 20px;">
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:600;color:#A4A3A4;font-size:14px;">01</span>
+              <div><div style="font-weight:600;font-size:16px;">Ask me first</div><div style="font-size:13px;color:#747272;">WIS proposes, you approve every action.</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;background:#FFEEE6;border:1px solid #FFD3BF;border-radius:16px;padding:16px 20px;">
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:600;color:#DB3700;font-size:14px;">02</span>
+              <div><div style="font-weight:600;font-size:16px;color:#A32900;">Handle the routine</div><div style="font-size:13px;color:#A32900;opacity:.8;">Small things done, big things asked.</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #E9E8E8;border-radius:16px;padding:16px 20px;">
+              <span style="font-family:'IBM Plex Mono',monospace;font-weight:600;color:#A4A3A4;font-size:14px;">03</span>
+              <div><div style="font-weight:600;font-size:16px;">Full trust</div><div style="font-size:13px;color:#747272;">WIS acts, then tells you what it did.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(22px,3vw,36px);line-height:1.2;letter-spacing:-0.02em;text-align:center;margin:clamp(56px,7vw,90px) auto 0;max-width:20ch;text-wrap:balance;">An app designed to be opened less, and opened <span style="color:#DB3700;">gladly</span>.</p>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION · WHY REAL ═══ -->
+  <section data-screen-label="Why real" style="background:#1a1310;border-top:1px solid #E9E8E8;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(24px,6vw,80px);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#F48457;margin-bottom:20px;">Why real</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 32px;max-width:18ch;color:#fff;text-wrap:balance;">Trust isn't something you can feel in a mockup.</h2>
+      <div style="max-width:640px;">
+        <p style="font-size:clamp(19px,2.3vw,24px);line-height:1.5;font-weight:500;color:#EDE6E2;margin:0 0 22px;letter-spacing:-0.01em;">The brief was about trust between a person and an AI. So we didn't stop at screens: we made it tangible, a prototype you can move through and interact with, built with AI from our Figma designs.</p>
+        <p style="font-size:16px;line-height:1.6;color:#A4A3A4;margin:0;">The responses are scripted, but the experience is real enough to test the relationship the brief asked for.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 6 — MY ROLE ═══ -->
+  <section data-screen-label="My role" style="background:#fff;border-top:1px solid #E9E8E8;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(70px,9vw,120px) clamp(24px,6vw,80px);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#DB3700;margin-bottom:20px;">My role</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5vw,58px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 56px;max-width:14ch;text-wrap:balance;">Our working timeline.</h2>
+
+      <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:clamp(40px,6vw,88px);align-items:start;">
+        <!-- timeline -->
+        <div style="position:relative;padding-left:38px;">
+          <div style="position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(#FFD3BF,#DB3700);"></div>
+          <div style="position:relative;margin-bottom:34px;"><div style="position:absolute;left:-38px;top:1px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid #DB3700;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#DB3700;">1</div><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px;"><span style="font-weight:600;font-size:18px;letter-spacing:-0.01em;">Brief &amp; reframing</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#DB3700;background:#FFEEE6;padding:3px 9px;border-radius:999px;letter-spacing:0.03em;">Day 1</span></div></div>
+
+          <div style="position:relative;margin-bottom:34px;"><div style="position:absolute;left:-38px;top:1px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid #DB3700;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#DB3700;">2</div><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px;"><span style="font-weight:600;font-size:18px;letter-spacing:-0.01em;">Research · energy stream</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#DB3700;background:#FFEEE6;padding:3px 9px;border-radius:999px;letter-spacing:0.03em;">Day 1</span></div><p style="font-size:15px;line-height:1.55;color:#747272;margin:0;max-width:44ch;">My stream surfaced the insight: invisible savings don't exist.</p></div>
+
+          <div style="position:relative;margin-bottom:34px;"><div style="position:absolute;left:-38px;top:1px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid #DB3700;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#DB3700;">3</div><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px;"><span style="font-weight:600;font-size:18px;letter-spacing:-0.01em;">Concept &amp; wireframing</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#DB3700;background:#FFEEE6;padding:3px 9px;border-radius:999px;letter-spacing:0.03em;">Day 2</span></div></div>
+
+          <div style="position:relative;margin-bottom:34px;"><div style="position:absolute;left:-38px;top:1px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid #DB3700;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#DB3700;">4</div><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px;"><span style="font-weight:600;font-size:18px;letter-spacing:-0.01em;">UI design in Figma</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#DB3700;background:#FFEEE6;padding:3px 9px;border-radius:999px;letter-spacing:0.03em;">Day 3</span></div></div>
+
+          <div style="position:relative;margin-bottom:34px;"><div style="position:absolute;left:-38px;top:1px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid #DB3700;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#DB3700;">5</div><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px;"><span style="font-weight:600;font-size:18px;letter-spacing:-0.01em;">Working prototype</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#DB3700;background:#FFEEE6;padding:3px 9px;border-radius:999px;letter-spacing:0.03em;">Day 3-4</span></div><p style="font-size:15px;line-height:1.55;color:#747272;margin:0;max-width:44ch;">I led the build of our working prototype, turning our Figma designs into an interactive app with AI.</p></div>
+
+          <div style="position:relative;margin-bottom:34px;"><div style="position:absolute;left:-38px;top:1px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid #DB3700;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#DB3700;">6</div><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px;"><span style="font-weight:600;font-size:18px;letter-spacing:-0.01em;">Client presentation</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#DB3700;background:#FFEEE6;padding:3px 9px;border-radius:999px;letter-spacing:0.03em;">Day 5</span></div></div>
+        </div>
+
+        <!-- outcome + reflection -->
+        <div style="display:flex;flex-direction:column;gap:20px;position:sticky;top:24px;">
+          <div style="background:#1a1310;border-radius:22px;padding:30px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+              <img src="assets/wis-head.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#F48457;">Outcome</span>
+            </div>
+            <p style="font-size:15.5px;line-height:1.6;color:#EDE6E2;margin:0;">Presented to the client's Experience Design team, who highlighted the innovative take on the human-AI relationship, the challenge system as an engagement driver, and full coverage of the brief's strategic questions.</p>
+          </div>
+          <div style="background:#FFF6F2;border:1px solid #FFD3BF;border-radius:22px;padding:30px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#A32900;display:block;margin-bottom:14px;">Reflection</span>
+            <p style="font-size:15.5px;line-height:1.6;color:#3C3839;margin:0;">The one thing this project made clear to me: with AI making the build so fast, the real work wasn't producing screens anymore. It was deciding which ideas were worth building.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div style="background:#1a1310;">
+      <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,72px) clamp(24px,6vw,80px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <img src="assets/wis-head-full.png" alt="WIS" style="width:40px;height:40px;object-fit:contain;" />
+          <div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;color:#fff;letter-spacing:-0.01em;">WIS</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A4A3A4;letter-spacing:0.04em;">AI Home Agent</div>
+          </div>
+        </div>
+        <p style="font-size:13.5px;line-height:1.65;color:#A4A3A4;margin:0;max-width:560px;text-align:right;">Team: F. Altieri, F. Dama, E. Giolitti, Y. Kumar, L. Orsillo, G. Rondi<br/>Master UX/UI Design, Talent Garden · 2026</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;prototypeUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      prototypeUrl: this.props.prototypeUrl || '#',
+      steps: [
+        { n: '1', title: 'Brief & reframing', day: 'Day 1', note: '' },
+        { n: '2', title: 'Research · energy stream', day: 'Day 1', note: 'My stream surfaced the insight: invisible savings don\u2019t exist.' },
+        { n: '3', title: 'Concept & wireframing', day: 'Day 2', note: '' },
+        { n: '4', title: 'UI design in Figma', day: 'Day 3', note: '' },
+        { n: '5', title: 'Working prototype', day: 'Day 3–4', note: 'I led the AI-assisted build with Claude Code, turning Figma designs into a functioning coded prototype.' },
+        { n: '6', title: 'Client presentation', day: 'Day 5', note: '' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

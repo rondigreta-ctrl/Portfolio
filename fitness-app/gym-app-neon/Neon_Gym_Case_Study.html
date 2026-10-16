@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Gym — Case Study · Greta Rondi</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0A0A0C;
+      --bg2: #0E0E10;
+      --card: #17171B;
+      --surface: #1B1B21;
+      --border: rgba(255, 255, 255, .08);
+      --lime: #BBF246;
+      --mag: #FF2EC4;
+      --pur: #7B3BFF;
+      --text: #F4F4F6;
+      --muted: #9A9AA4;
+      --dim: #A3A3AD;
+      --font-head: 'Chakra Petch', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── BACK BUTTON ─────────────────────────────────────── */
+    .back-btn {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      z-index: 200;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--lime);
+      box-shadow: 0 0 0 0 rgba(187, 242, 70, 0);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .back-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .back-btn:hover {
+      border-color: var(--lime);
+      box-shadow: 0 0 18px rgba(187, 242, 70, 0.25);
+      transform: translateX(-2px);
+    }
+
+    @media (max-width: 640px) {
+      .back-btn {
+        top: 16px;
+        left: 16px;
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    /* ── REVEAL ANIMATION ─────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.4s;
+    }
+
+    .reveal-delay-5 {
+      transition-delay: 0.5s;
+    }
+
+    /* ── LAYOUT ──────────────────────────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    section {
+      padding: 96px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    /* ── SECTION NUMBER ───────────────────────────────────── */
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .22em;
+      color: var(--lime);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* ── HEADINGS ─────────────────────────────────────────── */
+    h2 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(26px, 4vw, 38px);
+      color: var(--text);
+      line-height: 1.05;
+      margin-bottom: 36px;
+    }
+
+    h3 {
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 680px;
+    }
+
+    p+p {
+      margin-top: 16px;
+    }
+
+    /* ── COVER ────────────────────────────────────────────── */
+    #cover {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+      padding: 140px 0 96px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 55% at 70% 40%, rgba(187, 242, 70, .07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 70%, rgba(255, 44, 196, .05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cover-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .2em;
+      color: var(--lime);
+      border: 1px solid rgba(187, 242, 70, .3);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 40px;
+    }
+
+    .cover-tag::before {
+      content: '◇';
+    }
+
+    .cover-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(64px, 10vw, 110px);
+      color: var(--text);
+      line-height: .92;
+      letter-spacing: -.02em;
+      margin-bottom: 32px;
+    }
+
+    .cover-title span {
+      color: var(--lime);
+      text-shadow: 0 0 60px rgba(187, 242, 70, .35);
+    }
+
+    .cover-tagline {
+      font-family: var(--font-body);
+      font-size: clamp(17px, 2vw, 22px);
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 56px;
+      max-width: 520px;
+      line-height: 1.45;
+    }
+
+    .cover-meta {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12px;
+    }
+
+    .cover-layout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .cover-device-wrap {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 32px;
+    }
+
+    .cover-device {
+      height: 560px;
+      width: auto;
+      transform: rotate(8deg) translateY(-16px);
+      transform-origin: center bottom;
+      filter:
+        drop-shadow(0 0 28px rgba(187,242,70,.32))
+        drop-shadow(0 0 72px rgba(187,242,70,.12))
+        drop-shadow(0 48px 88px rgba(0,0,0,.88));
+    }
+
+    .tag-pill {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      color: var(--dim);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+    }
+
+    /* ── BRIEF ────────────────────────────────────────────── */
+    .brief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .brief-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .brief-card-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: .2em;
+      color: var(--dim);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .brief-card-value {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .honest-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      color: var(--lime);
+      background: rgba(187, 242, 70, .08);
+      border: 1px solid rgba(187, 242, 70, .25);
+      padding: 5px 12px;
+      border-radius: 7px;
+      margin-top: 28px;
+    }
+
+    /* ── MOODBOARD ────────────────────────────────────────── */
+    .moodboard-img-wrap {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin: 40px 0;
+      background: var(--card);
+      position: relative;
+    }
+
+    .moodboard-img-wrap img {
+      width: 100%;
+      display: block;
+    }
+
+    .moodboard-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/7;
+      background: repeating-linear-gradient(135deg, #17171B 0 12px, #1b1b21 12px 24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .15em;
+      color: var(--dim);
+    }
+
+    .reading-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .reading-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 26px;
+    }
+
+    .reading-card-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: .2em;
+      color: var(--lime);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .reading-card p {
+      font-size: 14px;
+      max-width: 100%;
+    }
+
+    .color-dots {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0 4px;
+    }
+
+    .dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── DECISIONS ────────────────────────────────────────── */
+    .decision {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 0 28px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .decision:last-child {
+      border-bottom: none;
+    }
+
+    .decision-num {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--lime);
+      padding-top: 3px;
+    }
+
+    .decision h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .decision p {
+      font-size: 15px;
+    }
+
+    .decision-demo {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── SCREENS ──────────────────────────────────────────── */
+    .screens-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    .screen-item {}
+
+    .phone-frame {
+      width: 100%;
+      aspect-ratio: 390/844;
+      border-radius: 36px;
+      background: #0E0E10;
+      border: 7px solid #000;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, .6), 0 4px 12px rgba(0, 0, 0, .3);
+    }
+
+    .phone-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .phone-frame-placeholder {
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(135deg, #191920 0 12px, #212029 12px 24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Embedded mini-prototype */
+    .phone-embed {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    .screen-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: .18em;
+      color: var(--lime);
+      margin-top: 16px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .screen-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .screen-desc {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 100%;
+      line-height: 1.55;
+    }
+
+    .annotation {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    .annotation::before {
+      content: '→';
+      color: var(--lime);
+      flex-shrink: 0;
+    }
+
+    /* ── PROTOTYPE LINK ──────────────────────────────────── */
+    .proto-link-wrap {
+      margin-top: 48px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .proto-link-text {}
+
+    .proto-link-text p {
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .proto-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--lime);
+      color: #0E0E10;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .03em;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 8px 28px rgba(187, 242, 70, .3);
+      transition: box-shadow .2s ease, transform .15s ease;
+      flex-shrink: 0;
+    }
+
+    .proto-btn:hover {
+      box-shadow: 0 12px 40px rgba(187, 242, 70, .5);
+      transform: translateY(-2px);
+    }
+
+    .proto-btn svg {
+      flex-shrink: 0;
+    }
+
+    /* ── REFLECTION ───────────────────────────────────────── */
+    .reflection-body {
+      font-size: 17px;
+      line-height: 1.75;
+      max-width: 700px;
+      color: var(--muted);
+    }
+
+    .reflection-body strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    footer {
+      padding: 56px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .15em;
+      color: var(--dim);
+    }
+
+    .footer-back {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .12em;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-back:hover {
+      color: var(--lime);
+    }
+
+    /* ── INLINE COLOR SAMPLE ──────────────────────────────── */
+    .color-sample {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    /* ── CHIP DEMO ────────────────────────────────────────── */
+    .chip-demo {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .chip-inactive {
+      background: var(--surface);
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .chip-active {
+      background: var(--lime);
+      color: #0E0E10;
+      font-weight: 700;
+    }
+
+    /* ── TYPE DEMO ────────────────────────────────────────── */
+    .type-demo-row {
+      display: flex;
+      gap: 6px;
+      align-items: baseline;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .type-demo-row:last-child {
+      border-bottom: none;
+    }
+
+    .type-demo-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: .15em;
+      color: var(--dim);
+      min-width: 120px;
+    }
+
+    .type-demo-sample {
+      color: var(--text);
+    }
+
+    /* ── BLUEPRINT CANVAS ─────────────────────────────────── */
+    .blueprint-canvas {
+      background:
+        radial-gradient(ellipse 75% 50% at 50% 80%, rgba(187,242,70,.04) 0%, transparent 65%),
+        #0E0E10;
+      width: 100%;
+      padding: 56px 0 68px;
+      box-sizing: border-box;
+      position: relative;
+      border-top: 1px solid rgba(187,242,70,.07);
+      border-bottom: 1px solid rgba(187,242,70,.07);
+    }
+
+    .blueprint-inner {
+      position: relative;
+      width: 1060px;
+      max-width: 100%;
+      height: 660px;
+      margin: 0 auto;
+      overflow: visible;
+    }
+
+    .bp-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 4;
+      overflow: visible;
+    }
+
+    .bp-device-img {
+      position: absolute;
+      height: 520px;
+      width: auto;
+      filter:
+        drop-shadow(0 0 22px rgba(187,242,70,.28))
+        drop-shadow(0 0 64px rgba(187,242,70,.10))
+        drop-shadow(0 32px 72px rgba(0,0,0,.90));
+      transform-origin: center center;
+    }
+
+    .bp-ann {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 10;
+    }
+
+    .bp-ann-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: .2em;
+      color: var(--lime);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .bp-ann-sub {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #9A9AA4;
+      line-height: 1.52;
+      letter-spacing: .03em;
+    }
+
+    /* ── FOCUS ───────────────────────────────────────────── */
+    a:focus-visible {
+      outline: 2px solid var(--lime);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ── REDUCED MOTION ──────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .brief-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reading-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .screens-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .blueprint-canvas { padding: 40px 16px 48px; }
+      .blueprint-inner {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+      }
+      .bp-device-img {
+        position: static !important;
+        transform: none !important;
+        height: 360px;
+      }
+
+      .cover-layout {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .cover-device-wrap {
+        padding-left: 0;
+      }
+
+      .cover-device {
+        height: 340px;
+        transform: rotate(6deg) translateY(0);
+        animation: none;
+      }
+
+      .cover-title {
+        font-size: 56px;
+      }
+
+      .decision {
+        grid-template-columns: 1fr;
+      }
+
+      .decision-num {
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      .proto-link-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="back-btn" href="../../index.html" aria-label="Back to portfolio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+  </a>
+
+  <!-- ══════════════════════════════════════════════════════
+       COVER
+  ══════════════════════════════════════════════════════════ -->
+  <section id="cover">
+    <div class="container">
+      <div class="cover-layout">
+
+        <div class="cover-inner">
+
+          <div class="cover-tag reveal">
+            Art Direction Exercise
+          </div>
+
+          <h1 class="cover-title reveal reveal-delay-1" style="white-space:nowrap;">
+            <span>Neon</span><span style="color:#0E0E10;"> Gym</span>
+          </h1>
+
+          <p class="cover-tagline reveal reveal-delay-2">
+            From mood to interface: translating a Neo Acid Pop aesthetic
+            into a coherent fitness app UI system.
+          </p>
+
+          <div class="cover-meta reveal reveal-delay-3">
+            <span class="tag-pill">UI DESIGN</span>
+            <span class="tag-pill">TALENT GARDEN</span>
+          </div>
+
+        </div>
+
+        <div class="cover-device-wrap reveal reveal-delay-2">
+          <img src="uploads/Home_1_iphone17.png" alt="Neon Gym app — Home screen" class="cover-device">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       01 — THE BRIEF
+  ══════════════════════════════════════════════════════════ -->
+  <section id="brief">
+    <div class="container">
+
+      <span class="section-num reveal">01 — THE BRIEF</span>
+      <h2 class="reveal">First assignment.</h2>
+
+      <p class="reveal reveal-delay-2">
+        Define the visual identity of a fitness brand that spans bodyweight training,
+        free weights, and gym equipment.
+      </p>
+
+      <div class="brief-grid">
+        <div class="brief-card reveal reveal-delay-1">
+          <span class="brief-card-label">CONTEXT</span>
+          <div class="brief-card-value">UX/UI Design Master · Talent Garden</div>
+        </div>
+        <div class="brief-card reveal reveal-delay-2">
+          <span class="brief-card-label">MODULE</span>
+          <div class="brief-card-value">Art Direction</div>
+        </div>
+        <div class="brief-card reveal reveal-delay-3">
+          <span class="brief-card-label">DELIVERABLE</span>
+          <div class="brief-card-value">Moodboard</div>
+        </div>
+        <div class="brief-card reveal reveal-delay-4">
+          <span class="brief-card-label">TIME</span>
+          <div class="brief-card-value">20 min</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       02 — READING THE MOODBOARD
+  ══════════════════════════════════════════════════════════ -->
+  <section id="moodboard">
+    <div class="container">
+
+      <span class="section-num reveal">02 — READING THE MOODBOARD</span>
+      <h2 class="reveal">What the moodboard said.</h2>
+
+      <p class="reveal reveal-delay-1">
+        The aesthetic draws from two references:
+      </p>
+      <ul role="list" class="reveal reveal-delay-2"
+        style="margin-top:16px; padding-left:0; list-style:none; max-width:680px; display:flex; flex-direction:column; gap:10px; color:var(--muted); font-size:16px;">
+        <li style="display:flex; gap:12px;"><span style="color:var(--lime); flex-shrink:0;">—</span><span><strong
+              style="color:var(--text);">The raw, excessive energy of 80s gym culture:</strong> diamond-plate metal,
+            neon signage, bodies pushed to the limit.</span></li>
+        <li style="display:flex; gap:12px;"><span style="color:var(--lime); flex-shrink:0;">—</span><span><strong
+              style="color:var(--text);">Neo Acid Pop:</strong> a visual language built on fluo colour, dark surfaces,
+            and graphic excess.</span></li>
+      </ul>
+      <p class="reveal reveal-delay-3" style="margin-top:20px;">
+        The result is an identity that feels physical, electric, and unapologetically loud.
+      </p>
+
+      <!-- Moodboard image -->
+      <div class="moodboard-img-wrap reveal reveal-delay-2">
+        <img src="uploads/Moodboard_updated.png" alt="Neo Acid Pop Moodboard"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="moodboard-img-placeholder" style="display:none;">
+          MOODBOARD_UPDATED.PNG — Neo Acid Pop
+        </div>
+      </div>
+
+      <!-- Reading cards -->
+      <div class="reading-grid">
+
+        <div class="reading-card reveal reveal-delay-1">
+          <span class="reading-card-label">STYLE</span>
+          <h3>Neo Acid Pop</h3>
+          <p><strong style="color:var(--text);">80s gym energy:</strong> excess, fluorescence, raw physicality. <br>The gym as a <strong style="color:var(--text);">stage</strong>,
+            not a utility space. Every visual choice screams rather than whispers.</p>
+        </div>
+
+        <div class="reading-card reveal reveal-delay-2">
+          <span class="reading-card-label">PALETTE</span>
+          <h3>Dark stage, neon performers</h3>
+          <div class="color-dots">
+            <div class="dot" style="background:#0E0E10; border:1px solid rgba(255,255,255,.15);" title="#0E0E10"></div>
+            <div class="dot" style="background:#17171B; border:1px solid rgba(255,255,255,.1);" title="#17171B"></div>
+            <div class="dot" style="background:#BBF246; box-shadow:0 0 12px rgba(187,242,70,.5);" title="#BBF246"></div>
+            <div class="dot" style="background:#FF2EC4; box-shadow:0 0 12px rgba(255,44,196,.5);" title="#FF2EC4"></div>
+            <div class="dot" style="background:#7B3BFF; box-shadow:0 0 12px rgba(123,59,255,.5);" title="#7B3BFF"></div>
+          </div>
+          <p style="margin-top:8px;">The dark base (#0E0E10, #17171B) is the void that makes neon possible.
+            Lime = action. Magenta = intensity. Purple = depth.</p>
+        </div>
+
+        <div class="reading-card reveal reveal-delay-3">
+          <span class="reading-card-label">TYPOGRAPHY</span>
+          <div style="display:flex; flex-direction:column; gap:16px; margin-top:4px;">
+            <p style="max-width:100%; font-size:14px;"><span
+                style="font-family:'Chakra Petch',sans-serif; font-weight:700; color:var(--text);">Chakra Petch</span> —
+              angular, technical, retrofuturist. It carries the weight of the 80s gym aesthetic without quoting it
+              literally.</p>
+            <p style="max-width:100%; font-size:14px;"><span
+                style="font-family:'Space Mono',monospace; color:var(--text); text-transform:uppercase; letter-spacing:.12em;">Space
+                Mono</span> — monospaced type reads as machine output, performance metrics, precision.</p>
+            <p style="max-width:100%; font-size:14px;"><span
+                style="font-family:'Space Grotesk',sans-serif; font-weight:600; color:var(--text);">Space Grotesk</span>
+              — for everything in between, modern, neutral, legible.</p>
+          </div>
+        </div>
+
+        <div class="reading-card reveal reveal-delay-4">
+          <span class="reading-card-label">TEXTURE & IMAGERY</span>
+          <h3>Metal meets digital</h3>
+          <p><strong style="color:var(--text);">Diamond-plate texture:</strong> the physicality of a real gym bleeding into the screen.
+            <br>Bodies in motion, neon-lit environments, dark backgrounds. This is <strong style="color:var(--text);">performance</strong>,
+            not wellness. <br>The UI should feel like the gym smells. Urgent and alive.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       03 — THE SECOND BRIEF
+  ══════════════════════════════════════════════════════════ -->
+  <section id="second-brief">
+    <div class="container">
+
+      <span class="section-num reveal">03 — THE CHALLENGE</span>
+      <h2 class="reveal">A second brief.</h2>
+
+      <p class="reveal reveal-delay-1">
+        Take the moodboard and design three screens of the fitness app.
+      </p>
+
+      <div class="brief-grid">
+        <div class="brief-card reveal reveal-delay-1">
+          <span class="brief-card-label">DELIVERABLE</span>
+          <div class="brief-card-value">3 Screens · Interactive Prototype</div>
+        </div>
+        <div class="brief-card reveal reveal-delay-2">
+          <span class="brief-card-label">SCREENS</span>
+          <div class="brief-card-value">Explore · Training Session · Paywall</div>
+        </div>
+        <div class="brief-card reveal reveal-delay-3">
+          <span class="brief-card-label">TOOLS</span>
+          <div class="brief-card-value">Figma, Miro</div>
+        </div>
+        <div class="brief-card reveal reveal-delay-4">
+          <span class="brief-card-label">TIME</span>
+          <div class="brief-card-value">8 hours</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       04 — THE SCREENS
+  ══════════════════════════════════════════════════════════ -->
+  <section id="screens" style="padding:0;">
+
+    <div class="container" style="padding-top:96px;padding-bottom:48px;">
+      <span class="section-num reveal">04 — THE SCREENS</span>
+      <h2 class="reveal">Three screens. One system.</h2>
+    </div>
+
+    <!-- Blueprint / schematic free-canvas composition -->
+    <div class="blueprint-canvas">
+      <div class="blueprint-inner">
+
+        <!-- Phone 1 — Explore / Home -->
+        <img src="uploads/Screen_4_Explore.png" alt="Explore screen" class="bp-device-img"
+          style="left:145px;top:88px;transform:rotate(-7deg);z-index:1;">
+
+        <!-- Phone 2 — Category / Filters -->
+        <img src="uploads/Screen_1_Category.png" alt="Category filter screen" class="bp-device-img"
+          style="left:310px;top:48px;transform:rotate(3deg);z-index:2;">
+
+        <!-- Phone 3 — Training Session -->
+        <img src="uploads/Screen_3_Training.png" alt="Training session screen" class="bp-device-img"
+          style="left:475px;top:90px;transform:rotate(-5deg);z-index:3;">
+
+        <!-- Phone 4 — Paywall / Pro -->
+        <img src="uploads/Screen_2_Paywall.png" alt="Pro paywall screen" class="bp-device-img"
+          style="left:640px;top:50px;transform:rotate(4deg);z-index:4;">
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       05 — REFLECTION
+  ══════════════════════════════════════════════════════════ -->
+  <section id="reflection">
+    <div class="container">
+
+      <span class="section-num reveal">05 — REFLECTION</span>
+
+      <ul role="list" class="reveal reveal-delay-1"
+        style="margin-top:48px; padding-left:0; list-style:none; max-width:680px; display:flex; flex-direction:column; gap:24px; color:var(--muted); font-size:17px; line-height:1.6;">
+        <li style="display:flex; gap:14px;"><span style="color:var(--lime); flex-shrink:0;">◇</span><span>No research means every choice has to stand on its own visual merit.</span></li>
+        <li style="display:flex; gap:14px;"><span style="color:var(--lime); flex-shrink:0;">◇</span><span>The moodboard was already set, staying faithful to it was the brief, not a starting point to question. I took it as a constraint and pushed forward.</span></li>
+        <li style="display:flex; gap:14px;"><span style="color:var(--lime); flex-shrink:0;">◇</span><span>The unexpected challenge was <strong style="color:var(--text);">accessibility</strong>. Fluo on dark looks electric, but lime and magenta don't always meet <strong style="color:var(--text);">WCAG</strong> contrast requirements. Making it work within those guidelines became part of the aesthetic problem, not a separate one.</span></li>
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">Art Direction Exercise · Neon Gym · UI Design · Talent Garden</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SCROLL REVEAL
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      // Trigger immediately for cover elements
+      document.querySelectorAll('#cover .reveal').forEach(el => {
+        el.classList.add('visible');
+      });
+
+      // Observe the rest
+      document.querySelectorAll('.reveal:not(#cover .reveal)').forEach(el => {
+        observer.observe(el);
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

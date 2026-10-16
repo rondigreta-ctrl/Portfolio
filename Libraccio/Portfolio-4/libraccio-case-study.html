@@ -1,0 +1,525 @@
+11
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opening the Black Box — Libraccio Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="case-study-v5.css?v=5">
+</head>
+
+<body>
+
+  <div class="progress" aria-hidden="true"></div>
+  <a class="skip" href="#context">Skip to content</a>
+
+  <a class="back-btn" href="../../index.html" aria-label="Back to portfolio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+  </a>
+
+  <!-- Bold spine that accompanies the whole page -->
+  <nav class="spine" aria-label="Sections">
+    <span class="spine-line" aria-hidden="true"></span>
+    <a href="#cover"><span class="snode" aria-hidden="true"></span></a>
+    <a href="#context"><span class="snode" aria-hidden="true"></span></a>
+    <a href="#box"><span class="snode" aria-hidden="true"></span></a>
+    <a href="#principles"><span class="snode" aria-hidden="true"></span></a>
+    <a href="#solution"><span class="snode" aria-hidden="true"></span></a>
+    <a href="#journey"><span class="snode" aria-hidden="true"></span></a>
+    <a href="#my-role"><span class="snode" aria-hidden="true"></span></a>
+    <a href="#reflection"><span class="snode" aria-hidden="true"></span></a>
+    <a href="#prototype"><span class="snode" aria-hidden="true"></span></a>
+  </nav>
+
+  <main>
+
+    <!-- 1 · COVER -->
+    <section class="cover section" id="cover" data-screen-label="Cover">
+      <div class="shell">
+        <div class="status">
+          <span class="collab">
+            <img src="uploads/Libraccio_logo.png" alt="Libraccio" class="collab-logo">
+            <span class="collab-x" aria-hidden="true">×</span>
+            <img src="uploads/TAG_logo.png" alt="Talent Garden" class="collab-logo">
+          </span>
+          <span>Academic team project · UX/UI Design Master · Talent Garden</span>
+        </div>
+      </div>
+      <div class="shell cover-center">
+        <h1 class="cover-tagline reveal">Redesigning <span class="cover-em">trust</span> in Libraccio's second hand
+          selling experience</h1>
+        <img src="uploads/schermate_cover.png" alt="Libraccio redesigned screens" class="cover-screens reveal d1">
+      </div>
+    </section>
+
+    <!-- 2 · CONTEXT -->
+    <section class="context section" id="context" data-screen-label="Context &amp; Challenge">
+      <div class="shell">
+        <div class="chapter reveal">
+          <span class="node" aria-hidden="true">01</span>
+          <span class="clabel">Context &amp; Challenge</span>
+        </div>
+        <p class="lead reveal">Libraccio.it is one of Italy's leading second-hand book platforms. Users can sell their
+          used books directly to Libraccio, who evaluates, buys, and resells them. In return, sellers receive cash or
+          store credit to spend on the platform.</p>
+        <div class="head">
+          <div class="reveal">
+            <h2>The brief was about usability. The real problem was something else.</h2>
+          </div>
+          <div class="pivot reveal d1">
+            <p class="small">Users didn't struggle to use the platform.</p>
+            <p class="big">They didn't trust it.</p>
+          </div>
+        </div>
+        <div class="cols">
+          <p class="reveal">The brief: make the selling flow simpler and make Libraccio credit feel like a real reward.
+          </p>
+          <p class="reveal d1"> What we found instead: trust was broken before usability even mattered.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · BLACK BOX -->
+    <section class="box section" id="box" data-screen-label="The Real Problem" data-dark>
+      <div class="shell">
+        <div class="chapter on-dark reveal">
+          <span class="node" aria-hidden="true">02</span>
+          <span class="clabel">The Real Problem</span>
+        </div>
+        <div class="quote-block reveal">
+          <p class="title">Black Box Syndrome</p>
+          <p class="title-sub">Sellers felt trapped, not valued</p>
+          <blockquote><span class="mark">“</span>They keep them either way. So why would I trust their valuation?<span
+              class="mark">”</span></blockquote>
+          <p class="attr">— Recurring sentiment across user interviews</p>
+        </div>
+
+        <div class="box-body">
+          <div class="breakdowns">
+            <div class="breakdown reveal">
+              <div class="bd-num">01</div>
+              <div>
+                <h4>No transparency before the sale</h4>
+                <p>Valuation criteria were never communicated upfront. Users had no idea how their books would be
+                  assessed or what would determine the final offer.</p>
+              </div>
+            </div>
+            <div class="breakdown reveal d1">
+              <div class="bd-num">02</div>
+              <div>
+                <h4>Hidden rejection risk</h4>
+                <p>The possibility that books could be rejected after shipping was buried in the flow, and rejected
+                  books were retained by Libraccio with no clear return option.</p>
+              </div>
+            </div>
+            <div class="breakdown reveal d2">
+              <div class="bd-num">03</div>
+              <div>
+                <h4>A suspicion that couldn't be ignored</h4>
+                <p>Rejected books weren't returned to the seller. Libraccio kept them, with no clear justification in
+                  the flow. The result: a widespread suspicion that books were retained even when perfectly resalable.
+                </p>
+              </div>
+            </div>
+          </div>
+          <figure class="box-mockup reveal d1" style="text-align:center;">
+            <img src="uploads/comparison.png" alt="Rejection warning screen shown to sellers before submitting books"
+              style="margin:0 auto; width:min(260px,88%);">
+            <figcaption class="cap">The rejection warning, buried late in the original flow</figcaption>
+          </figure>
+        </div>
+
+        <div class="research">
+          <div class="stat reveal">
+            <div class="big" data-count="161">0</div>
+            <div class="desc">Survey responses</div>
+          </div>
+          <div class="stat reveal d1">
+            <div class="big" data-count="9">0</div>
+            <div class="desc">Semi-structured interviews</div>
+          </div>
+          <div class="stat reveal d2">
+            <div class="big"><span class="unit">+</span></div>
+            <div class="desc">digital observation + benchmark</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="box-closer" data-dark>
+      <div class="shell">
+        <div class="inner reveal">
+          <p>Users felt the system was designed <span class="hl">against</span> them, not for them. The redesign wasn't
+            about fixing a flow: <span class="hl">it was about rebuilding a relationship.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · PRINCIPLES -->
+    <section class="principles section" id="principles" data-screen-label="Design Principles">
+      <div class="shell">
+        <div class="chapter reveal">
+          <span class="node" aria-hidden="true">03</span>
+          <span class="clabel">Design Principles</span>
+        </div>
+        <div class="head reveal">
+          <h2>From insight to direction: four principles to earn trust back.</h2>
+          <p class="lead">Every design decision was driven by one goal: give users visibility, predictability, and
+            control over a process they had learned not to trust.</p>
+        </div>
+        <div class="pgrid">
+          <div class="principle reveal" data-num="01">
+            <div class="p-idx">P · 01</div>
+            <h3>Transparency</h3>
+            <p>Show valuation criteria before the user commits to anything.</p>
+          </div>
+          <div class="principle reveal d1" data-num="02">
+            <div class="p-idx">P · 02</div>
+            <h3>Control</h3>
+            <p>Give users real decision-making power, including over rejected books.</p>
+          </div>
+          <div class="principle reveal d2" data-num="03">
+            <div class="p-idx">P · 03</div>
+            <h3>Simplicity</h3>
+            <p>Remove cognitive friction at every step of the flow.</p>
+          </div>
+          <div class="principle reveal d3" data-num="04">
+            <div class="p-idx">P · 04</div>
+            <h3>Context</h3>
+            <p>Deliver the right information at the right moment in the journey.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · SOLUTION -->
+    <section class="solution section" id="solution" data-screen-label="Solution">
+      <div class="shell">
+        <div class="chapter reveal">
+          <span class="node" aria-hidden="true">04</span>
+          <span class="clabel">Solution</span>
+        </div>
+        <div class="head reveal">
+          <h2>Five targeted interventions.</h2>
+          <p class="lead">The redesign is mobile-first and built around five interventions: each one directly
+            addressing a specific trust breakdown identified in research.</p>
+        </div>
+
+        <!-- 1 -->
+        <div class="interv">
+          <div class="interv-text reveal">
+            <div class="i-num">Intervention 01 <span class="of">/ 05</span></div>
+            <h3>Upfront condition declaration</h3>
+            <p>Users describe their books' condition before submitting. This makes the valuation transparent and
+              predictable, removing the “black box” effect.</p>
+          </div>
+          <div class="interv-media reveal d1">
+            <div class="media-panel">
+              <div class="pair">
+                <img class="phone" src="assets/condizioni-libro.png" alt="Book condition declaration screen"
+                  style="width:min(300px,72%);">
+                <img class="card-img" src="assets/condizione-nuovo.png" alt="Condition detail modal"
+                  style="width:min(212px,52%); right:4%; bottom:-4%;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="interv flip">
+          <div class="interv-text reveal">
+            <div class="i-num">Intervention 02 <span class="of">/ 05</span></div>
+            <h3>Fast ISBN scanning</h3>
+            <p>Reduces technical friction in book entry, lowering the effort barrier to start selling: scan the barcode
+              and the price surfaces instantly.</p>
+          </div>
+          <div class="interv-media reveal d1">
+            <div class="media-panel tint">
+              <img src="assets/scan-isbn.png" alt="ISBN barcode scanning screen" style="width:min(290px,70%);">
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="interv">
+          <div class="interv-text reveal">
+            <div class="i-num">Intervention 03 <span class="of">/ 05</span></div>
+            <h3>End-to-end tracking</h3>
+            <p>A single hub where users follow every stage: shipping, evaluation, and final outcome. Nothing disappears,
+              nothing is invisible.</p>
+          </div>
+          <div class="interv-media reveal d1">
+            <div class="media-panel">
+              <img src="uploads/screen nuovo.png" alt="Sale tracking hub with progress steps"
+                style="width:min(290px,70%);">
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 · feature — the box opens to green -->
+        <div class="feature reveal" data-screen-label="Intervention 04">
+          <div class="interv-text">
+            <span class="badge">The trust turning point</span>
+            <div class="i-num">Intervention 04 <span class="of">/ 05</span></div>
+            <h3>Explicit rejection management</h3>
+            <p>If a book is rejected, the user chooses what happens next: <strong>recycling, donation, or
+                return.</strong> No book is ever retained without explicit consent. This is the single decision that
+              dismantles the “black box.”</p>
+          </div>
+          <div class="interv-media">
+            <img src="uploads/gestione rifiutati.png" alt="Rejected book destination choice: recycle, donate or return"
+              style="">
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="interv flip">
+          <div class="interv-text reveal">
+            <div class="i-num">Intervention 05 <span class="of">/ 05</span></div>
+            <h3>Credit enhancement &amp; Wallet</h3>
+            <p>A dedicated space for Libraccio credit, with a <strong>+5% bonus</strong> for circular-economy choices,
+              makes the credit feel like a real reward, not a consolation prize.</p>
+          </div>
+          <div class="interv-media reveal d1">
+            <div class="media-panel">
+              <img src="uploads/Group 2.png" alt="Wallet and credit enhancement screens" style="width:min(220px,56%)">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- JOURNEY MAP -->
+    <section class="journey section" id="journey" data-screen-label="Complete Flow">
+      <div class="shell">
+        <div class="chapter reveal">
+          <span class="node" aria-hidden="true">05</span>
+          <span class="clabel">Complete Flow</span>
+        </div>
+        <div class="head reveal">
+          <h2>Beyond the five interventions: the full flow, mapped end to end.</h2>
+          <p class="lead">The five interventions above are the highlights. Behind them sits a complete service map
+            covering every path a seller can take, from first click to payout, including the edge cases.</p>
+        </div>
+        <nav class="jflow reveal" aria-label="Flow phases">
+          <a href="#j-01" class="jflow-step"><span class="jflow-dot">01</span><span class="jflow-name">Access</span></a>
+          <a href="#j-02" class="jflow-step"><span class="jflow-dot">02</span><span class="jflow-name">Book entry</span></a>
+          <a href="#j-03" class="jflow-step"><span class="jflow-dot">03</span><span class="jflow-name">Sale setup</span></a>
+          <a href="#j-04" class="jflow-step"><span class="jflow-dot">04</span><span class="jflow-name">Shipping &amp; tracking</span></a>
+          <a href="#j-05" class="jflow-step"><span class="jflow-dot">05</span><span class="jflow-name">Evaluation</span></a>
+          <a href="#j-06" class="jflow-step"><span class="jflow-dot">06</span><span class="jflow-name">Close</span></a>
+        </nav>
+
+        <div class="jgrid">
+          <div class="jcard reveal" id="j-01" data-num="01">
+            <h3>Access</h3>
+            <ul>
+              <li><strong>Entry point</strong> Homepage click straight into the selling flow, one step.</li>
+              <li><strong>Trust before commitment</strong> Reviews, trust score and guarantee seal surfaced before the user starts.</li>
+            </ul>
+          </div>
+          <div class="jcard reveal d1" id="j-02" data-num="02">
+            <h3>Book entry</h3>
+            <ul>
+              <li><strong>Adding books</strong> ISBN scan via camera, webcam, or QR hand-off to mobile, plus manual entry.</li>
+              <li><strong>€15 minimum</strong> Checkout unlocks only above threshold; price updates live as books are added.</li>
+              <li><strong>Pre-evaluation</strong> Automatic prediction of acceptance and price per book, before shipping.</li>
+            </ul>
+          </div>
+          <div class="jcard reveal" id="j-03" data-num="03">
+            <h3>Sale setup</h3>
+            <ul>
+              <li><strong>Registration</strong> Email, Google or Facebook, with explicit marketing consent.</li>
+              <li><strong>Shipping method</strong> Home pickup, bookshop drop-off, or locker.</li>
+              <li><strong>Payout method</strong> Store credit (+5% bonus, free shipping), bank transfer (€1.90), PayPal (€0.90).</li>
+            </ul>
+          </div>
+          <div class="jcard reveal d1" id="j-04" data-num="04">
+            <h3>Shipping &amp; tracking</h3>
+            <ul>
+              <li><strong>Confirmation</strong> Email with a unique order code and weight-based shipping instructions.</li>
+              <li><strong>No printing</strong> Digital label only, for every shipping method.</li>
+              <li><strong>Progress bar</strong> Every stage after drop-off stays visible.</li>
+            </ul>
+          </div>
+          <div class="jcard reveal" id="j-05" data-num="05">
+            <h3>Evaluation</h3>
+            <ul>
+              <li><strong>Outcome</strong> Shown directly on the user's profile.</li>
+              <li><strong>Rejection, explained</strong> Every rejected book comes with its reason, before any other choice.</li>
+              <li><strong>What happens next</strong> Recycle, donate (recipient disclosed), or paid return.</li>
+            </ul>
+          </div>
+          <div class="jcard reveal d1" id="j-06" data-num="06">
+            <h3>Close</h3>
+            <ul>
+              <li><strong>Payout</strong> Credited, confirmed on profile and by email.</li>
+              <li><strong>Feedback</strong> Requested right after the payout.</li>
+              <li><strong>What's next</strong> Personalized recommendations, with seasonal logic (e.g. textbooks in August–September).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY ROLE -->
+    <section class="myrole section" id="my-role" data-screen-label="My Role">
+      <div class="shell">
+        <div class="chapter reveal">
+          <span class="node" aria-hidden="true">06</span>
+          <span class="clabel">My Role</span>
+        </div>
+        <div class="myrole-head">
+          <h2 class="reveal">Process overview</h2>
+          <p class="myrole-sub reveal d1">The project was developed as a team.<br>The phases I owned independently are noted in each description.</p>
+        </div>
+        <div class="tl-track">
+
+          <div class="tl-row reveal">
+            <div class="tl-card tl-card--left">
+              <p class="tl-label">Brief analysis</p>
+              <p class="tl-desc">Defining the project scope: simplify the C2B selling flow and increase the perceived
+                value of Libraccio credit.</p>
+            </div>
+            <div class="tl-node-wrap" aria-hidden="true"><span class="tl-node">1</span></div>
+            <div class="tl-spacer"></div>
+          </div>
+
+          <div class="tl-row reveal">
+            <div class="tl-spacer"></div>
+            <div class="tl-node-wrap" aria-hidden="true"><span class="tl-node">2</span></div>
+            <div class="tl-card tl-card--right">
+              <p class="tl-label">As-is analysis</p>
+              <p class="tl-desc">Mapping the existing selling experience to identify friction points, drop-off moments,
+                and trust breakdowns across the flow.</p>
+            </div>
+          </div>
+
+          <div class="tl-row reveal">
+            <div class="tl-card tl-card--left">
+              <p class="tl-label">Desk research</p>
+              <p class="tl-desc"><strong>Digital observation:</strong> analyzing user-generated content, reviews, and forum discussions about the Libraccio selling experience.<br><strong>Benchmark:</strong> mapping competitor C2B flows to identify industry standards and gaps.</p>
+            </div>
+            <div class="tl-node-wrap" aria-hidden="true"><span class="tl-node">3</span></div>
+            <div class="tl-spacer"></div>
+          </div>
+
+          <div class="tl-row reveal">
+            <div class="tl-spacer"></div>
+            <div class="tl-node-wrap" aria-hidden="true"><span class="tl-node">4</span></div>
+            <div class="tl-card tl-card--right">
+              <p class="tl-label">User interviews</p>
+              <p class="tl-desc">9 semi-structured interviews with sellers to explore motivations, pain points, and emotional responses to the valuation process.<br><em>I structured the interviews and conducted part of them.</em></p>
+            </div>
+          </div>
+
+          <div class="tl-row reveal">
+            <div class="tl-card tl-card--left">
+              <p class="tl-label">Survey + analysis</p>
+              <p class="tl-desc">161-response survey to validate qualitative findings at scale.<br><em>I designed the survey structure and analyzed the data.</em></p>
+            </div>
+            <div class="tl-node-wrap" aria-hidden="true"><span class="tl-node">5</span></div>
+            <div class="tl-spacer"></div>
+          </div>
+
+          <div class="tl-row reveal">
+            <div class="tl-spacer"></div>
+            <div class="tl-node-wrap" aria-hidden="true"><span class="tl-node">6</span></div>
+            <div class="tl-card tl-card--right">
+              <p class="tl-label">Insights + HMW</p>
+              <p class="tl-desc">Synthesis of research findings into actionable insights. HMW questions to reframe
+                problems as design opportunities.</p>
+            </div>
+          </div>
+
+          <div class="tl-row reveal">
+            <div class="tl-card tl-card--left">
+              <p class="tl-label">Wireframing</p>
+              <p class="tl-desc">Low-fidelity flows for the full selling journey.<br><em>I owned the landing page and onboarding guide flows.</em></p>
+            </div>
+            <div class="tl-node-wrap" aria-hidden="true"><span class="tl-node">7</span></div>
+            <div class="tl-spacer"></div>
+          </div>
+
+          <div class="tl-row reveal">
+            <div class="tl-spacer"></div>
+            <div class="tl-node-wrap" aria-hidden="true"><span class="tl-node">8</span></div>
+            <div class="tl-card tl-card--right">
+              <p class="tl-label">UI Design</p>
+              <p class="tl-desc">Design system and final interface implementation.<br><em>I contributed to building styles, variables, and components in Figma. I designed the landing page and onboarding guide end to end.</em></p>
+            </div>
+          </div>
+
+          <div class="tl-row reveal">
+            <div class="tl-card tl-card--left">
+              <p class="tl-label">Prototyping</p>
+              <p class="tl-desc">Interactive prototype of the full flow.<br><em>I built and connected the prototype for the landing page and onboarding guide.</em></p>
+            </div>
+            <div class="tl-node-wrap" aria-hidden="true"><span class="tl-node">9</span></div>
+            <div class="tl-spacer"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · REFLECTION -->
+    <section class="reflection section" id="reflection" data-screen-label="Reflection">
+      <div class="shell">
+        <div class="chapter reveal">
+          <span class="node" aria-hidden="true">07</span>
+          <span class="clabel">Reflection</span>
+        </div>
+        <div class="inner">
+          <h2 class="reveal">What I Learned</h2>
+          <div class="r-body reveal d1">
+            <p>This project taught me that UX friction isn't always a usability problem: sometimes it's a trust
+              problem. And trust requires a different design language: one built on transparency, predictability, and
+              control rather than efficiency alone.</p>
+          </div>
+          <p class="closer reveal d2">The most interesting design decision wasn't a UI choice. <span class="hl">It was
+              reframing the brief entirely.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · TRY THE PROTOTYPE -->
+    <section class="proto section" id="prototype" data-screen-label="Try the Prototype">
+      <div class="shell">
+        <div class="chapter reveal">
+          <span class="node" aria-hidden="true">08</span>
+          <span class="clabel">Try the Prototype</span>
+        </div>
+        <div class="proto-inner">
+          <div class="proto-text reveal">
+            <h2>See the redesign in action</h2>
+          </div>
+          <div class="proto-qr reveal d1">
+            <img src="uploads/QR.png" alt="QR code to access the Figma prototype">
+            <p class="qr-hint">Scan to open prototype</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Libraccio · C2B Selling Experience</span>
+    <span class="brand">Academic team project · UX/UI Design Master · Talent Garden</span>
+  </footer>
+
+  <script src="case-study-v3.js"></script>
+</body>
+
+</html>

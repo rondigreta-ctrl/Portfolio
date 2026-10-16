@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>WIS — Widget iPhone corriere</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+  :root{
+    --primary-4:#F48457; --primary-5:#E84E0F; --primary-6:#DB3700;
+  }
+  *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; }
+  html,body{ height:100%; }
+  body{
+    margin:0; min-height:100dvh; display:flex; align-items:center; justify-content:center;
+    background:transparent; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','SF Pro Display','Inter',sans-serif; padding:0;
+  }
+  .data{ font-family:ui-monospace,'SF Mono','IBM Plex Mono',monospace; }
+
+  /* ---------- iPhone frame ---------- */
+  .device{
+    width:375px; height:812px; position:relative; background:#000; border-radius:54px;
+    padding:12px; flex-shrink:0;
+  }
+  .device-inner{
+    width:100%; height:100%; border-radius:44px; overflow:hidden; position:relative;
+    background-image:url('assets/home-wallpaper-blue.png');
+    background-size:cover; background-position:center;
+  }
+  .dynamic-island{
+    position:absolute; top:11px; left:50%; transform:translateX(-50%); width:126px; height:37px;
+    background:#000; border-radius:100px; z-index:50;
+  }
+  .home-indicator{
+    position:absolute; bottom:9px; left:50%; transform:translateX(-50%); width:144px; height:5px;
+    background:#fff; opacity:.9; border-radius:100px; z-index:60; pointer-events:none;
+  }
+  .status-bar{
+    position:absolute; top:0; left:0; right:0; height:54px; display:flex; align-items:center; justify-content:space-between;
+    padding:21px 26px 19px; z-index:40; pointer-events:none;
+    font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Inter',sans-serif; color:#fff;
+  }
+  .status-time{ font-size:16px; font-weight:600; }
+  .status-icons{ display:flex; gap:6px; align-items:center; color:#fff; }
+
+  /* ---------- Home screen content ---------- */
+  .home-screen{ position:relative; padding:70px 16px 0; height:100%; }
+
+  .widget-medium{
+    width:100%; height:158px; border-radius:21px; padding:16px 18px;
+    background:
+      radial-gradient(220px 140px at 100% 0%, rgba(244,132,87,.10), transparent 70%),
+      #FFFFFF;
+    box-shadow:0 8px 20px -10px rgba(0,0,0,.18), 0 1px 2px rgba(0,0,0,.06);
+    display:flex; flex-direction:column; justify-content:space-between;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .widget-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
+  .widget-eyebrow-wrap{ display:flex; align-items:center; gap:6px; }
+  .widget-eyebrow{ font-size:10.5px; font-weight:800; letter-spacing:.5px; color:var(--primary-5); text-transform:uppercase; }
+  .widget-live-dot{ width:6px; height:6px; border-radius:50%; background:var(--primary-5); box-shadow:0 0 0 3px rgba(232,78,15,.18); }
+  .widget-avatar{
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .widget-avatar img{ width:38px; height:38px; object-fit:contain; }
+
+  .widget-title{ margin:8px 0 0; font-size:15px; font-weight:600; color:#1C1C1E; line-height:19px; letter-spacing:-0.01em; }
+  .widget-sub{ margin:2px 0 0; font-size:12.5px; font-weight:510; color:rgba(60,60,67,.6); line-height:16px; }
+
+  .widget-bottom{ display:flex; align-items:center; gap:8px; }
+  .widget-timer{ font-size:13px; font-weight:510; color:rgba(60,60,67,.6); margin-right:auto; }
+  .widget-timer b{ color:#1C1C1E; font-weight:590; }
+  .widget-btn{
+    display:flex; align-items:center; gap:4px; border:none; cursor:pointer; font-family:inherit;
+    font-size:12.5px; font-weight:590; border-radius:100px; padding:8px 13px;
+  }
+  .widget-btn-primary{ background:var(--primary-5); color:#fff; }
+  .widget-btn-secondary{ background:rgba(60,60,67,.08); color:#1C1C1E; }
+
+  /* ---------- App icon grid (context only) ---------- */
+  .app-grid{ margin-top:22px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px 0; justify-items:center; }
+  .app-icon{ width:58px; height:58px; border-radius:15px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,.25); position:relative; overflow:hidden; }
+  .app-icon iconify-icon{ color:#fff; }
+
+  .dock{
+    position:absolute; left:16px; right:16px; bottom:34px; height:82px; border-radius:28px;
+    background:rgba(255,255,255,.14); backdrop-filter:blur(20px);
+    display:flex; align-items:center; justify-content:space-around; padding:0 14px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="device">
+    <div class="dynamic-island"></div>
+    <div class="home-indicator"></div>
+    <div class="device-inner">
+
+      <div class="status-bar">
+        <div class="status-time">9:41</div>
+        <div class="status-icons">
+          <iconify-icon icon="ion:cellular" width="18" height="18"></iconify-icon>
+          <iconify-icon icon="ion:wifi" width="17" height="17"></iconify-icon>
+          <iconify-icon icon="ion:battery-full" width="25" height="25"></iconify-icon>
+        </div>
+      </div>
+
+      <div class="home-screen">
+
+        <!-- WIS interactive widget -->
+        <div class="widget-medium">
+          <div class="widget-top">
+            <div>
+              <div class="widget-eyebrow-wrap">
+                <span class="widget-live-dot"></span>
+                <span class="widget-eyebrow">Corriere alla porta</span>
+              </div>
+              <p class="widget-title">Vuoi che gestisca io la consegna?</p>
+              <p class="widget-sub">Videocamera d'ingresso attiva</p>
+            </div>
+            <div class="widget-avatar"><img src="assets/wis-head-full.png" alt="WIS"></div>
+          </div>
+          <div class="widget-bottom">
+            <span class="widget-timer data">da <b>00:14</b></span>
+            <button class="widget-btn widget-btn-primary" type="button">
+              <iconify-icon icon="tabler:check" width="14" height="14"></iconify-icon>
+              Sì, fai tu
+            </button>
+            <button class="widget-btn widget-btn-secondary" type="button">No, faccio io</button>
+          </div>
+        </div>
+
+        <!-- context: a couple of app icon rows -->
+        <div class="app-grid">
+          <img src="apple icons/Examples/Examples/App Icon.png" alt="FaceTime" style="width:66px;height:auto;">
+          <img src="apple icons/Examples/Examples/App Icon calendar.png" alt="Calendar" style="width:66px;height:auto;">
+          <img src="apple icons/Examples/Examples/photos.png" alt="Photos" style="width:66px;height:auto;">
+          <img src="apple icons/Examples/Examples/camera.png" alt="Camera" style="width:66px;height:auto;">
+        </div>
+      </div>
+
+      <div class="dock">
+        <div class="app-icon"><img src="apple icons/Examples/Examples/Phone-Light-60x60@3x.png" alt="Phone" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="app-icon"><img src="assets/app-icon-mail.png" alt="Mail" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="app-icon"><img src="apple icons/Examples/Examples/Music-Light-60x60@3x.png" alt="Music" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="app-icon"><img src="assets/app-icon-settings.png" alt="Settings" style="width:100%;height:100%;object-fit:cover;"></div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./support.js"></script>
+</head>
+
+<body>
+  <x-dc>
+    <helmet>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;0,16..72,600;1,16..72,400;1,16..72,500&display=swap"
+        rel="stylesheet">
+      <style>
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          margin: 0;
+          background: #F6F5FA;
+        }
+
+        ::selection {
+          background: rgba(232, 113, 79, 0.22);
+        }
+
+        @keyframes blobSpin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes breathe {
+
+          0%,
+          100% {
+            transform: scale(1);
+          }
+
+          50% {
+            transform: scale(1.06);
+          }
+        }
+
+        @keyframes auraFloat {
+
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(-12px);
+          }
+        }
+
+        @keyframes mira_pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(232, 113, 79, 0.5);
+          }
+
+          70%,
+          100% {
+            box-shadow: 0 0 0 12px rgba(232, 113, 79, 0);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          * {
+            animation: none !important;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .problem-icons {
+            order: 2;
+          }
+
+          .problem-text {
+            order: 1;
+          }
+        }
+      </style>
+    </helmet>
+
+    <div ref="{{ rootRef }}"
+      style="font-family:'Inter',system-ui,sans-serif;background:#F6F5FA;color:#171824;overflow-x:hidden;">
+
+      <div data-progress
+        style="position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#E8714F);z-index:100;transition:width .12s linear;">
+      </div>
+
+      <!-- ============================ HERO ============================ -->
+      <section data-screen-label="Hero" style="padding:36px 56px 120px;background:#F6F5FA;">
+        <div style="max-width:1120px;margin:0 auto;">
+          <div
+            style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:8px 0 92px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span
+                style="display:inline-block;width:28px;height:28px;border-radius:50%;animation:blobSpin 9s linear infinite;background:radial-gradient(circle at 34% 28%,#F6BC70 0%,rgba(246,188,112,0) 55%),radial-gradient(circle at 72% 32%,#E8714F 0%,rgba(232,113,79,0) 58%),radial-gradient(circle at 64% 76%,#9678E4 0%,rgba(150,120,228,0) 60%),radial-gradient(circle at 30% 72%,#E46080 0%,rgba(228,96,128,0) 60%),#E8714F;"></span>
+              <span style="font:600 21px/1 'Newsreader',serif;letter-spacing:-0.01em;color:#171824;">Mira</span>
+            </div>
+            <span
+              style="font:600 12px/1 'Inter',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9a9aa6;">Personal
+              project · UX/UI Master · Talent Garden</span>
+          </div>
+
+          <div style="display:flex;gap:64px;align-items:center;flex-wrap:wrap;">
+            <div style="flex:1 1 500px;min-width:320px;" data-reveal>
+              <div
+                style="font:700 13px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#171824;">
+                AI travel companion · Mobile-first</div>
+              <h1
+                style="font:500 clamp(56px,8vw,108px)/0.94 'Newsreader',serif;letter-spacing:-0.025em;color:var(--accent-deep,#C9512F);margin:40px 0 0;">
+                Mira</h1>
+              <p
+                style="font:500 clamp(22px,3vw,34px)/1.2 'Newsreader',serif;font-style:italic;color:#171824;margin:16px 0 0;">
+                You see the world. Mira sees to the rest.</p>
+              <p
+                style="font:400 20px/1.6 'Inter',sans-serif;color:#424467;margin:28px 0 0;max-width:50ch;text-wrap:pretty;">
+                A mobile app that cuts the mental load of planning a trip.<br>It <strong
+                  style="font-weight:600;color:#171824;">learns</strong> how you travel, helps you <strong
+                  style="font-weight:600;color:#171824;">decide</strong>, and <strong
+                  style="font-weight:600;color:#171824;">adapts</strong> when plans change, always leaving you in
+                <strong style="font-weight:600;color:#171824;">control</strong>.
+              </p>
+            </div>
+
+            <div style="flex:0 0 auto;margin:0 auto;" data-reveal="120">
+              <div
+                style="width:260px;height:563px;border-radius:44px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 48px 90px -22px rgba(0,0,0,0.55);padding:12px;position:relative;">
+                <div
+                  style="position:absolute;left:50%;top:15px;transform:translateX(-50%);width:88px;height:22px;border-radius:13px;background:#000;z-index:2;">
+                </div>
+                <div
+                  style="position:absolute;left:-5px;top:80px;width:5px;height:20px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;left:-5px;top:112px;width:5px;height:32px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;left:-5px;top:154px;width:5px;height:32px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;right:-5px;top:120px;width:5px;height:52px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                </div>
+                <div style="width:100%;height:100%;border-radius:32px;overflow:hidden;background:#000;">
+                  <img src="uploads/Trip_cover.jpeg" alt="Mira app screen"
+                    style="width:100%;height:100%;object-fit:cover;display:block;" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================ PROBLEM (dark) ============================ -->
+      <section data-screen-label="Problem" style="padding:128px 56px;background:#13141d;color:#fff;">
+        <div style="max-width:1120px;margin:0 auto;">
+          <div style="font:700 13px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#E8714F;"
+            data-reveal>The problem</div>
+          <h2
+            style="font:500 clamp(32px,4.4vw,58px)/1.12 'Newsreader',serif;letter-spacing:-0.015em;color:#fff;margin:24px 0 0;max-width:34ch;text-wrap:pretty;"
+            data-reveal>The problem was never finding options.<br>It was choosing between too many equally good ones.</h2>
+
+          <div style="display:flex;gap:80px;flex-wrap:wrap;margin-top:88px;align-items:flex-start;">
+
+            <!-- LEFT: scattered icons -->
+            <div class="problem-icons" style="flex:1 1 280px;min-width:240px;" data-reveal="120">
+              <div style="position:relative;height:520px;">
+                <div
+                  style="position:absolute;left:3%;top:2%;transform:rotate(-25deg);width:58px;height:58px;border-radius:14px;background:#fff;border:1px solid rgba(255,255,255,0.18);box-shadow:0 8px 20px rgba(0,0,0,0.32);display:flex;align-items:center;justify-content:center;padding:8px;">
+                  <img src="assets/instagram.png" alt="Instagram" style="width:100%;height:100%;object-fit:contain;" />
+                </div>
+                <div
+                  style="position:absolute;left:58%;top:5%;transform:rotate(19deg);width:58px;height:58px;border-radius:14px;background:#fff;border:1px solid rgba(255,255,255,0.18);box-shadow:0 8px 20px rgba(0,0,0,0.32);display:flex;align-items:center;justify-content:center;padding:8px;">
+                  <img src="assets/tiktok.png" alt="TikTok" style="width:100%;height:100%;object-fit:contain;" />
+                </div>
+                <div
+                  style="position:absolute;left:24%;top:22%;transform:rotate(-7deg);width:58px;height:58px;border-radius:14px;background:#fff;border:1px solid rgba(255,255,255,0.18);box-shadow:0 8px 20px rgba(0,0,0,0.32);display:flex;align-items:center;justify-content:center;padding:8px;">
+                  <img src="uploads/493155.webp" alt="Photos" style="width:100%;height:100%;object-fit:contain;" />
+                </div>
+                <div
+                  style="position:absolute;left:64%;top:34%;transform:rotate(28deg);width:58px;height:58px;border-radius:14px;background:#fff;border:1px solid rgba(255,255,255,0.18);box-shadow:0 8px 20px rgba(0,0,0,0.32);display:flex;align-items:center;justify-content:center;padding:8px;">
+                  <img src="uploads/Apple_Notes_icon.svg.png" alt="Notes"
+                    style="width:100%;height:100%;object-fit:contain;" />
+                </div>
+                <div
+                  style="position:absolute;left:5%;top:48%;transform:rotate(-16deg);width:58px;height:58px;border-radius:14px;background:#fff;border:1px solid rgba(255,255,255,0.18);box-shadow:0 8px 20px rgba(0,0,0,0.32);display:flex;align-items:center;justify-content:center;padding:9px;">
+                  <img src="uploads/Microsoft-Word-Logo.png" alt="Word"
+                    style="width:100%;height:100%;object-fit:contain;" />
+                </div>
+                <div
+                  style="position:absolute;left:38%;top:44%;transform:rotate(13deg);width:58px;height:58px;border-radius:14px;background:#fff;border:1px solid rgba(255,255,255,0.18);box-shadow:0 8px 20px rgba(0,0,0,0.32);display:flex;align-items:center;justify-content:center;padding:9px;">
+                  <img src="uploads/excel-5963669_1280.png" alt="Excel"
+                    style="width:100%;height:100%;object-fit:contain;" />
+                </div>
+                <div
+                  style="position:absolute;left:54%;top:74%;transform:rotate(-11deg);width:58px;height:58px;border-radius:14px;background:#fff;border:1px solid rgba(255,255,255,0.18);box-shadow:0 8px 20px rgba(0,0,0,0.32);display:flex;align-items:center;justify-content:center;padding:8px;">
+                  <img src="uploads/googlemaps_icon.png.webp" alt="Google Maps"
+                    style="width:100%;height:100%;object-fit:contain;" />
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: text column -->
+            <div class="problem-text" style="flex:1 1 400px;min-width:300px;">
+
+              <!-- bridge paragraph -->
+              <p style="font:400 20px/1.7 'Inter',sans-serif;color:rgba(255,255,255,0.72);text-wrap:pretty;margin:0;"
+                data-reveal>
+                You're not short on things to do. You're buried in them, and deciding what's actually worth your time is the real work.
+              </p>
+
+              <!-- three problem blocks -->
+              <div style="display:flex;flex-direction:column;gap:16px;margin-top:44px;" data-reveal>
+                <div style="background:#fff;border-radius:14px;padding:20px 24px;">
+                  <div
+                    style="font:700 13px/1 'Inter',sans-serif;color:#E8714F;letter-spacing:.06em;text-transform:uppercase;">
+                    Scattered across tools</div>
+                  <p style="font:400 16px/1.6 'Inter',sans-serif;color:#424467;margin:8px 0 0;text-wrap:pretty;">
+                    Inspiration lives on Instagram, TikTok, Maps, screenshots, notes. Nothing connects.</p>
+                </div>
+                <div style="background:#fff;border-radius:14px;padding:20px 24px;">
+                  <div
+                    style="font:700 13px/1 'Inter',sans-serif;color:#E8714F;letter-spacing:.06em;text-transform:uppercase;">
+                    Hard to turn into a plan</div>
+                  <p style="font:400 16px/1.6 'Inter',sans-serif;color:#424467;margin:8px 0 0;text-wrap:pretty;">
+                    Deciding what's worth it, what to cut, and building a realistic day is slow, manual work.</p>
+                </div>
+                <div style="background:#fff;border-radius:14px;padding:20px 24px;">
+                  <div
+                    style="font:700 13px/1 'Inter',sans-serif;color:#E8714F;letter-spacing:.06em;text-transform:uppercase;">
+                    Hard to trust</div>
+                  <p style="font:400 16px/1.6 'Inter',sans-serif;color:#424467;margin:8px 0 0;text-wrap:pretty;">
+                    Knowing what's authentic, not just popular, is left to you.</p>
+                </div>
+              </div>
+
+              <!-- closing line -->
+              <p style="font:400 18px/1.65 'Inter',sans-serif;color:rgba(255,255,255,0.72);margin:36px 0 0;text-wrap:pretty;" data-reveal>
+                Put together, this is what makes planning exhausting. Not the time, the mental load of deciding.
+              </p>
+
+              <!-- interview quote -->
+              <p style="font:400 italic 15px/1.6 'Newsreader',serif;color:rgba(255,255,255,0.45);margin:20px 0 0;padding-left:16px;border-left:2px solid rgba(232,113,79,0.4);text-wrap:pretty;" data-reveal>
+                "Sorting out what's actually worth it is what frustrates me." <span style="font-style:normal;font-size:13px;opacity:.7;">— interview participant</span>
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ RESEARCH ============================ -->
+      <section data-screen-label="Research" style="padding:128px 56px;background:#F6F5FA;">
+        <div style="max-width:1120px;margin:0 auto;">
+          <div
+            style="font:700 13px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep,#C9512F);"
+            data-reveal>The research</div>
+          <h2
+            style="font:500 clamp(32px,4.4vw,58px)/1.08 'Newsreader',serif;letter-spacing:-0.015em;color:#171824;margin:24px 0 0;max-width:18ch;"
+            data-reveal>I listened to people who actually travel and plan</h2>
+          <div style="display:flex;gap:24px;flex-wrap:wrap;margin:48px 0 0;" data-reveal>
+            <div
+              style="flex:1 1 220px;background:#FCFBF8;border:1px solid rgba(23,24,36,0.08);border-radius:22px;padding:32px;">
+              <div style="font:500 60px/1 'Newsreader',serif;color:#171824;">42</div>
+              <div style="font:500 16px/1.4 'Inter',sans-serif;color:#424467;margin-top:12px;">survey responses</div>
+            </div>
+            <div
+              style="flex:1 1 220px;background:#FCFBF8;border:1px solid rgba(23,24,36,0.08);border-radius:22px;padding:32px;">
+              <div style="font:500 60px/1 'Newsreader',serif;color:#171824;">8</div>
+              <div style="font:500 16px/1.4 'Inter',sans-serif;color:#424467;margin-top:12px;">in-depth interviews</div>
+            </div>
+            <div
+              style="flex:1.4 1 280px;background:#FCFBF8;border:1px solid rgba(23,24,36,0.08);border-radius:22px;padding:32px;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font:500 28px/1.2 'Newsreader',serif;color:#171824;">Travel lovers aged 25–32 who travel and
+                organize on their own.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:24px;">
+            <div
+              style="flex:1 1 340px;min-width:300px;background:#FCFBF8;border:1px solid rgba(23,24,36,0.08);border-radius:22px;padding:32px;"
+              data-reveal>
+              <div style="font:600 17px/1.3 'Inter',sans-serif;color:#171824;">How long do you spend planning a trip?
+              </div>
+              <div style="display:flex;flex-direction:column;gap:18px;margin-top:24px;">
+                <div>
+                  <div
+                    style="display:flex;justify-content:space-between;font:500 14px 'Inter';color:#424467;margin-bottom:8px;">
+                    <span>3 – 6 hours</span><span style="color:#171824;font-weight:600;">45%</span>
+                  </div>
+                  <div style="height:10px;border-radius:999px;background:rgba(23,24,36,0.06);">
+                    <div style="height:100%;width:45%;border-radius:999px;background:#9678E4;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    style="display:flex;justify-content:space-between;font:500 14px 'Inter';color:#424467;margin-bottom:8px;">
+                    <span>1 – 3 hours</span><span style="color:#171824;font-weight:600;">29%</span>
+                  </div>
+                  <div style="height:10px;border-radius:999px;background:rgba(23,24,36,0.06);">
+                    <div style="height:100%;width:29%;border-radius:999px;background:#9678E4;opacity:.7;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    style="display:flex;justify-content:space-between;font:500 14px 'Inter';color:#424467;margin-bottom:8px;">
+                    <span>More than 10 hours</span><span style="color:#171824;font-weight:600;">14%</span>
+                  </div>
+                  <div style="height:10px;border-radius:999px;background:rgba(23,24,36,0.06);">
+                    <div style="height:100%;width:14%;border-radius:999px;background:#9678E4;opacity:.5;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <figure
+              style="flex:1 1 340px;min-width:300px;margin:0;background:#171824;border-radius:22px;padding:36px;display:flex;flex-direction:column;justify-content:center;"
+              data-reveal="80">
+              <div style="font:500 25px/1.45 'Newsreader',serif;font-style:italic;color:#fff;text-wrap:pretty;">"
+                Finding the right balance between seeing things and not burning out. Sorting out what's actually worth
+                it, that's what frustrates me."</div>
+              <figcaption
+                style="font:600 13px 'Inter';color:rgba(255,255,255,0.55);margin-top:18px;letter-spacing:.02em;">—
+                Federica, 29 · one of 8 in-depth interviews</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ INSIGHTS ============================ -->
+      <section data-screen-label="Insights" style="padding:128px 56px;background:#FCFBF8;">
+        <div style="max-width:1120px;margin:0 auto;">
+          <div
+            style="font:700 13px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep,#C9512F);"
+            data-reveal>From insight to product</div>
+          <h2
+            style="font:500 clamp(32px,4.4vw,58px)/1.08 'Newsreader',serif;letter-spacing:-0.015em;color:#171824;margin:24px 0 0;"
+            data-reveal>How the research shaped Mira</h2>
+
+          <div style="display:flex;flex-direction:column;margin-top:44px;">
+            <!-- 01 -->
+            <div
+              style="display:flex;gap:28px;align-items:flex-start;padding:32px 0;border-top:1px solid rgba(23,24,36,0.1);"
+              data-reveal>
+              <div style="flex:none;font:500 22px/1 'Newsreader',serif;color:var(--accent,#E8714F);width:38px;padding-top:4px;">01</div>
+              <div style="flex:1;display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap;">
+                <div style="flex:1;min-width:260px;">
+                  <p style="font:400 17px/1.5 'Inter',sans-serif;color:#424467;margin:0;text-wrap:pretty;">People are overwhelmed by choice, not short on it.</p>
+                  <p style="font:500 22px/1.4 'Inter',sans-serif;color:#171824;margin:10px 0 0;text-wrap:pretty;">So Mira's job isn't to suggest more. It's to help you decide what's worth it, and cut the rest.</p>
+                </div>
+                <div style="flex:none;width:180px;text-align:right;">
+                  <div style="font:500 52px/1 'Newsreader',serif;color:var(--accent-deep,#C9512F);">57%</div>
+                  <p style="font:400 13px/1.5 'Inter',sans-serif;color:var(--accent-deep,#C9512F);margin:8px 0 0;text-wrap:pretty;">named deciding what's worth it as a top frustration, the most cited in the survey.</p>
+                </div>
+              </div>
+            </div>
+            <!-- 02 -->
+            <div
+              style="display:flex;gap:28px;align-items:flex-start;padding:32px 0;border-top:1px solid rgba(23,24,36,0.1);"
+              data-reveal="60">
+              <div style="flex:none;font:500 22px/1 'Newsreader',serif;color:var(--accent,#E8714F);width:38px;padding-top:4px;">02</div>
+              <div style="flex:1;display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap;">
+                <div style="flex:1;min-width:260px;">
+                  <p style="font:400 17px/1.5 'Inter',sans-serif;color:#424467;margin:0;text-wrap:pretty;">Inspiration is scattered across apps, and connecting it is manual work.</p>
+                  <p style="font:500 22px/1.4 'Inter',sans-serif;color:#171824;margin:10px 0 0;text-wrap:pretty;">So Mira unifies what you already have, instead of becoming one more place to save things.</p>
+                </div>
+                <div style="flex:none;width:180px;text-align:right;">
+                  <div style="font:500 52px/1 'Newsreader',serif;color:var(--accent-deep,#C9512F);">5</div>
+                  <p style="font:400 13px/1.5 'Inter',sans-serif;color:var(--accent-deep,#C9512F);margin:8px 0 0;text-wrap:pretty;">different apps per person on average to save travel ideas.</p>
+                </div>
+              </div>
+            </div>
+            <!-- 03 -->
+            <div
+              style="display:flex;gap:28px;align-items:flex-start;padding:32px 0;border-top:1px solid rgba(23,24,36,0.1);"
+              data-reveal="120">
+              <div style="flex:none;font:500 22px/1 'Newsreader',serif;color:var(--accent,#E8714F);width:38px;padding-top:4px;">03</div>
+              <div style="flex:1;display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap;">
+                <div style="flex:1;min-width:260px;">
+                  <p style="font:400 17px/1.5 'Inter',sans-serif;color:#424467;margin:0;text-wrap:pretty;">People are open to AI, but only if they stay in charge.</p>
+                  <p style="font:500 22px/1.4 'Inter',sans-serif;color:#171824;margin:10px 0 0;text-wrap:pretty;">So Mira always suggests and never overrides. Every choice stays yours to change.</p>
+                </div>
+                <div style="flex:none;width:180px;text-align:right;">
+                  <div style="font:500 52px/1 'Newsreader',serif;color:var(--accent-deep,#C9512F);">55%</div>
+                  <p style="font:400 13px/1.5 'Inter',sans-serif;color:var(--accent-deep,#C9512F);margin:8px 0 0;text-wrap:pretty;">would trust AI only if they could edit everything by hand.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="margin-top:48px;padding:40px;border-radius:24px;background:var(--accent-soft,rgba(232,113,79,0.1));border:1px solid rgba(232,113,79,0.22);"
+            data-reveal>
+            <div
+              style="font:700 12px/1 'Inter';letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep,#C9512F);">
+              The design challenge · How might we</div>
+            <p
+              style="font:500 clamp(20px,2.4vw,28px)/1.35 'Newsreader',serif;color:#171824;margin:16px 0 0;text-wrap:pretty;">
+              Turn scattered inspiration into a feasible, personal itinerary, lowering cognitive load and building
+              trust, without taking away control?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ PROCESS ============================ -->
+      <section data-screen-label="Process" style="padding:128px 56px;background:#FCFBF8;">
+        <div style="max-width:1120px;margin:0 auto;">
+          <div style="font:700 13px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep,#C9512F);"
+            data-reveal>Process</div>
+          <h2
+            style="font:500 clamp(32px,4.4vw,58px)/1.12 'Newsreader',serif;letter-spacing:-0.015em;color:#171824;margin:24px 0 0;max-width:28ch;text-wrap:pretty;"
+            data-reveal>From redesigning what exists, to rethinking it.</h2>
+
+          <!-- vertical timeline -->
+          <div style="position:relative;margin-top:72px;padding-left:48px;">
+
+            <!-- vertical line -->
+            <div style="position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:rgba(23,24,36,0.1);border-radius:2px;"></div>
+
+            <!-- 01 Research -->
+            <div style="position:relative;margin-bottom:80px;" data-reveal>
+              <div style="position:absolute;left:-48px;top:4px;width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid rgba(23,24,36,0.15);display:flex;align-items:center;justify-content:center;">
+                <div style="width:8px;height:8px;border-radius:50%;background:rgba(23,24,36,0.25);"></div>
+              </div>
+              <div style="font:700 11px/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#424467;">01 · Research</div>
+              <p style="font:400 17px/1.6 'Inter',sans-serif;color:#424467;margin:10px 0 0;max-width:64ch;text-wrap:pretty;">Survey, interviews, and digital observation of existing tools.</p>
+            </div>
+
+            <!-- 02 Turning point — featured -->
+            <div style="position:relative;margin-bottom:80px;" data-reveal="60">
+              <div style="position:absolute;left:-48px;top:6px;width:22px;height:22px;border-radius:50%;background:#E8714F;border:2px solid #E8714F;display:flex;align-items:center;justify-content:center;">
+                <div style="width:8px;height:8px;border-radius:50%;background:#fff;"></div>
+              </div>
+              <div style="font:700 11px/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E8714F;">02 · The turning point</div>
+              <div style="margin-top:14px;padding:32px;border-radius:18px;background:#fff;border:1px solid rgba(232,113,79,0.2);box-shadow:0 4px 24px rgba(232,113,79,0.08);">
+
+                <!-- description -->
+                <p style="font:400 17px/1.6 'Inter',sans-serif;color:#424467;margin:0 0 28px;text-wrap:pretty;">I started by improving what already existed: a smarter way to organize the places you save, basically a better Wanderlog. But looking closely, I saw all those tools stop at the same point, and I wasn't solving the right problem yet.</p>
+
+                <!-- competitive matrix -->
+                <div style="overflow-x:auto;">
+                  <table style="width:100%;border-collapse:collapse;font:400 13px/1.4 'Inter',sans-serif;">
+                    <thead>
+                      <tr>
+                        <th style="text-align:left;padding:10px 14px 10px 0;font:600 11px/1 'Inter',sans-serif;letter-spacing:.06em;color:rgba(23,24,36,0.4);border-bottom:1px solid rgba(23,24,36,0.08);white-space:nowrap;"></th>
+                        <th style="padding:10px 12px;font:600 11px/1.3 'Inter',sans-serif;letter-spacing:.04em;color:rgba(23,24,36,0.4);border-bottom:1px solid rgba(23,24,36,0.08);text-align:center;white-space:nowrap;">Inspiration</th>
+                        <th style="padding:10px 12px;font:600 11px/1.3 'Inter',sans-serif;letter-spacing:.04em;color:rgba(23,24,36,0.4);border-bottom:1px solid rgba(23,24,36,0.08);text-align:center;white-space:nowrap;">Suggestion</th>
+                        <th style="padding:10px 12px;font:600 11px/1.3 'Inter',sans-serif;letter-spacing:.04em;color:#E8714F;border-bottom:2px solid rgba(232,113,79,0.4);text-align:center;white-space:nowrap;background:rgba(232,113,79,0.05);">Deciding what's<br>worth it</th>
+                        <th style="padding:10px 12px;font:600 11px/1.3 'Inter',sans-serif;letter-spacing:.04em;color:rgba(23,24,36,0.4);border-bottom:1px solid rgba(23,24,36,0.08);text-align:center;white-space:nowrap;">Structuring<br>the trip</th>
+                        <th style="padding:10px 12px;font:600 11px/1.3 'Inter',sans-serif;letter-spacing:.04em;color:#E8714F;border-bottom:2px solid rgba(232,113,79,0.4);text-align:center;white-space:nowrap;background:rgba(232,113,79,0.05);">Adapting<br>on the go</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Maps / Instagram -->
+                      <tr>
+                        <td style="padding:12px 14px 12px 0;font:500 13px 'Inter',sans-serif;color:#424467;border-bottom:1px solid rgba(23,24,36,0.06);white-space:nowrap;">Maps, Instagram</td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#E8714F;"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(23,24,36,0.2);"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);background:rgba(232,113,79,0.05);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(23,24,36,0.2);"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(23,24,36,0.2);"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);background:rgba(232,113,79,0.05);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(23,24,36,0.2);"></span></td>
+                      </tr>
+                      <!-- ChatGPT / Gemini -->
+                      <tr>
+                        <td style="padding:12px 14px 12px 0;font:500 13px 'Inter',sans-serif;color:#424467;border-bottom:1px solid rgba(23,24,36,0.06);white-space:nowrap;">ChatGPT, Gemini</td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#E8714F;"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#E8714F;"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);background:rgba(232,113,79,0.05);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(23,24,36,0.2);"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);">
+                          <span style="display:inline-block;width:14px;height:14px;border-radius:50%;overflow:hidden;border:2px solid #E8714F;position:relative;vertical-align:middle;">
+                            <span style="position:absolute;left:0;top:0;width:50%;height:100%;background:#E8714F;"></span>
+                          </span>
+                        </td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);background:rgba(232,113,79,0.05);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(23,24,36,0.2);"></span></td>
+                      </tr>
+                      <!-- Wanderlog -->
+                      <tr>
+                        <td style="padding:12px 14px 12px 0;font:500 13px 'Inter',sans-serif;color:#424467;border-bottom:1px solid rgba(23,24,36,0.06);white-space:nowrap;">Wanderlog</td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#E8714F;"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(23,24,36,0.2);"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);background:rgba(232,113,79,0.05);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(23,24,36,0.2);"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#E8714F;"></span></td>
+                        <td style="padding:12px;text-align:center;border-bottom:1px solid rgba(23,24,36,0.06);background:rgba(232,113,79,0.05);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(23,24,36,0.2);"></span></td>
+                      </tr>
+                      <!-- Mira — all full, row highlighted -->
+                      <tr style="background:rgba(232,113,79,0.06);">
+                        <td style="padding:12px 14px 12px 0;font:600 13px 'Inter',sans-serif;color:#171824;white-space:nowrap;border-radius:6px 0 0 6px;">Mira</td>
+                        <td style="padding:12px;text-align:center;"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#E8714F;"></span></td>
+                        <td style="padding:12px;text-align:center;"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#E8714F;"></span></td>
+                        <td style="padding:12px;text-align:center;background:rgba(232,113,79,0.12);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#E8714F;"></span></td>
+                        <td style="padding:12px;text-align:center;"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#E8714F;"></span></td>
+                        <td style="padding:12px;text-align:center;border-radius:0 6px 6px 0;background:rgba(232,113,79,0.12);"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#E8714F;"></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- insight row -->
+                <div style="margin-top:20px;padding:14px 18px;border-radius:10px;background:rgba(23,24,36,0.04);border-left:3px solid #E8714F;">
+                  <p style="font:500 14px/1.6 'Inter',sans-serif;color:#171824;margin:0;text-wrap:pretty;">Everyone stops before the hard part: deciding what's worth it. That became Mira's starting point.</p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- 03 Design -->
+            <div style="position:relative;margin-bottom:80px;" data-reveal="80">
+              <div style="position:absolute;left:-48px;top:4px;width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid rgba(23,24,36,0.15);display:flex;align-items:center;justify-content:center;">
+                <div style="width:8px;height:8px;border-radius:50%;background:rgba(23,24,36,0.25);"></div>
+              </div>
+              <div style="font:700 11px/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#424467;">03 · Design</div>
+
+              <!-- text + diagram side by side -->
+              <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;margin-top:10px;">
+
+                <!-- left: description -->
+                <div style="flex:1;min-width:220px;">
+                  <p style="font:400 17px/1.6 'Inter',sans-serif;color:#424467;margin:0;text-wrap:pretty;">The app was built with the same principle Mira runs on: human control over automation.<br>Designed in Figma, built with AI, refined in a loop.<br>The AI did the heavy lifting, I kept control of every design decision.</p>
+                </div>
+
+                <!-- right: loop flow -->
+                <div style="flex:1;min-width:320px;padding:28px 32px 24px;border-radius:18px;background:#fff;border:1px solid rgba(23,24,36,0.08);margin-top:-16px;">
+
+                <!-- nodes row + loop -->
+                <div style="display:flex;justify-content:center;">
+                  <div style="position:relative;display:inline-flex;flex-direction:column;padding-bottom:88px;">
+
+                    <!-- nodes -->
+                    <div style="display:flex;align-items:flex-start;gap:24px;">
+
+                      <!-- Node 1: Figma — fixed width so SVG coords are deterministic -->
+                      <div style="display:flex;flex-direction:column;align-items:center;min-width:90px;">
+                        <div style="width:48px;height:48px;border-radius:12px;background:#fff;box-shadow:0 2px 10px rgba(23,24,36,0.08);display:flex;align-items:center;justify-content:center;padding:8px;">
+                          <img src="uploads/Figma_logo.png" alt="Figma" style="width:100%;height:100%;object-fit:contain;" />
+                        </div>
+                        <div style="font:600 12px/1 'Inter',sans-serif;color:#171824;margin:8px 0 0;text-align:center;">Figma</div>
+                        <p style="font:400 11px/1.4 'Inter',sans-serif;color:#424467;margin:4px 0 0;text-align:center;max-width:90px;text-wrap:pretty;">Design system, wireframes, screens</p>
+                      </div>
+
+                      <!-- arrow right -->
+                      <div style="flex:none;align-self:flex-start;height:48px;display:flex;align-items:center;">
+                        <svg width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 7h24M18 2l6 5-6 5" stroke="#E8714F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+
+                      <!-- Node 2: Claude + Antigravity -->
+                      <div style="display:flex;flex-direction:column;align-items:center;min-width:120px;">
+                        <div style="display:flex;gap:10px;align-items:flex-start;justify-content:center;">
+                          <div style="display:flex;flex-direction:column;align-items:center;">
+                            <div style="width:48px;height:48px;border-radius:12px;background:#fff;box-shadow:0 2px 10px rgba(23,24,36,0.08);display:flex;align-items:center;justify-content:center;padding:8px;">
+                              <img src="uploads/Claude_logo.png" alt="Claude" style="width:100%;height:100%;object-fit:contain;" />
+                            </div>
+                            <div style="font:600 12px/1 'Inter',sans-serif;color:#171824;margin:8px 0 0;text-align:center;">Claude</div>
+                          </div>
+                          <div style="display:flex;flex-direction:column;align-items:center;">
+                            <div style="width:48px;height:48px;border-radius:12px;background:#fff;box-shadow:0 2px 10px rgba(23,24,36,0.08);display:flex;align-items:center;justify-content:center;padding:8px;">
+                              <img src="uploads/Frame 609.png" alt="Antigravity" style="width:100%;height:100%;object-fit:contain;" />
+                            </div>
+                            <div style="font:600 12px/1 'Inter',sans-serif;color:#171824;margin:8px 0 0;text-align:center;">Antigravity</div>
+                          </div>
+                        </div>
+                        <p style="font:400 11px/1.4 'Inter',sans-serif;color:#424467;margin:6px 0 0;text-align:center;max-width:120px;text-wrap:pretty;">Built into a working prototype</p>
+                      </div>
+
+                    </div>
+
+                    <!--
+                      Loop SVG — absolutely positioned, origin at icon-center height (top:24px).
+                      Content width: 90+24+28+24+120 = 286px.
+                      SVG left:-20px extends 20px past Figma left edge.
+                      SVG total width: 20 + 286 + 16 = 322px.
+
+                      Path x-coords (in SVG space):
+                        x=0   → 20px left of Figma left edge
+                        x=20  → Figma left edge (arrowhead tip lands here)
+                        x=110 → Figma right edge (90px node)
+                        x=186 → Node2 left edge (110+76)
+                        x=306 → Node2 right edge (186+120) — path starts here
+                        x=322 → 16px right extension
+
+                      Path y=0 → icon center (24px from wrapper top).
+                      Path y=70 → below all node content.
+                    -->
+                    <!--
+                      Right extension: 36px past Node2 right edge (x=306→342).
+                      Bottom at y=100: 24+100=124px from wrapper top, well below all text (~97px).
+                      SVG width: 20(left) + 286(content) + 36(right) = 342.
+                    -->
+                    <svg style="position:absolute;top:24px;left:-20px;pointer-events:none;overflow:visible;"
+                         width="362" height="140" viewBox="0 0 362 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M 334 0 L 354 0 Q 362 0 362 8 L 362 132 Q 362 140 354 140 L 8 140 Q 0 140 0 132 L 0 8 Q 0 0 8 0 L 20 0"
+                            stroke="rgba(232,113,79,0.65)" stroke-width="1.8" stroke-dasharray="5 3" stroke-linecap="round" fill="none"/>
+                      <!-- arrowhead → pointing right at (20, 0), towards Figma -->
+                      <path d="M 8 -6 L 20 0 L 8 6"
+                            stroke="rgba(232,113,79,0.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+
+                    <!-- loop label -->
+                    <p style="position:absolute;bottom:6px;left:0;right:0;font:400 11px/1.4 'Inter',sans-serif;color:#424467;margin:0;text-align:center;text-wrap:pretty;">Design, build, refine, repeat</p>
+
+                  </div>
+                </div>
+
+                </div><!-- end right: loop flow -->
+              </div><!-- end flex row -->
+            </div>
+
+            <!-- 04 Test and iterate -->
+            <div style="position:relative;" data-reveal="100">
+              <div style="position:absolute;left:-48px;top:4px;width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid rgba(23,24,36,0.15);display:flex;align-items:center;justify-content:center;">
+                <div style="width:8px;height:8px;border-radius:50%;background:rgba(23,24,36,0.25);"></div>
+              </div>
+              <div style="font:700 11px/1 'Inter',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#424467;">04 · Test and iterate</div>
+              <p style="font:400 17px/1.6 'Inter',sans-serif;color:#424467;margin:10px 0 0;max-width:64ch;text-wrap:pretty;">Usability testing at each stage, reworking the structure from what confused people.<br>The biggest change came from one of those rounds.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ SOLUTION INTRO ============================ -->
+      <section data-screen-label="Solution" style="padding:128px 56px 96px;background:#F6F5FA;">
+        <div style="max-width:1120px;margin:0 auto;">
+          <div style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;">
+            <div style="flex:1 1 320px;">
+              <div
+                style="font:700 13px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep,#C9512F);"
+                data-reveal>The solution</div>
+              <h2
+                style="font:500 clamp(32px,4.6vw,60px)/1.08 'Newsreader',serif;letter-spacing:-0.015em;color:#171824;margin:24px 0 0;max-width:20ch;text-wrap:pretty;"
+                data-reveal>What actually makes Mira different</h2>
+              <p style="font:400 20px/1.65 'Inter',sans-serif;color:#424467;margin:24px 0 0;max-width:56ch;text-wrap:pretty;"
+                data-reveal>AI personalization + real-time adaptation</p>
+            </div>
+            <div style="flex:0 1 280px;min-width:220px;margin:0 auto;" data-reveal="120">
+              <div
+                style="position:relative;width:min(280px,70vw);aspect-ratio:1;margin:0 auto;animation:auraFloat 8s ease-in-out infinite;">
+                <div
+                  style="position:absolute;inset:0;filter:blur(14px) saturate(1.3) brightness(1.08);animation:breathe 7s ease-in-out infinite;">
+                  <div
+                    style="position:absolute;left:40%;top:38%;width:48%;height:48%;border-radius:50%;mix-blend-mode:screen;transform:translate(-50%,-50%);background:radial-gradient(circle,#E8714F 0%,rgba(232,113,79,0) 64%);">
+                  </div>
+                  <div
+                    style="position:absolute;left:63%;top:47%;width:46%;height:46%;border-radius:50%;mix-blend-mode:screen;transform:translate(-50%,-50%);background:radial-gradient(circle,#E46080 0%,rgba(228,96,128,0) 62%);">
+                  </div>
+                  <div
+                    style="position:absolute;left:48%;top:64%;width:50%;height:50%;border-radius:50%;mix-blend-mode:screen;transform:translate(-50%,-50%);background:radial-gradient(circle,#9678E4 0%,rgba(150,120,228,0) 62%);">
+                  </div>
+                  <div
+                    style="position:absolute;left:58%;top:33%;width:42%;height:42%;border-radius:50%;mix-blend-mode:screen;transform:translate(-50%,-50%);background:radial-gradient(circle,#F6BC70 0%,rgba(246,188,112,0) 60%);">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:14px;margin:40px 0 0;max-width:62ch;" data-reveal>
+            <div
+              style="flex:none;width:16px;height:16px;border-radius:50%;background:var(--accent,#E8714F);margin-top:4px;">
+            </div>
+            <div>
+              <div style="font:600 18px/1.4 'Inter',sans-serif;color:#171824;">Why AI</div>
+              <p style="font:400 18px/1.7 'Inter',sans-serif;color:#424467;margin:6px 0 0;text-wrap:pretty;">The problem
+                isn't a lack of tools, it's fragmentation, overload and doubt about what to trust. AI is what lets Mira
+                personalize deeply and adapt in real time, removing real friction, not showing off.</p>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;margin:48px 0 0;max-width:62ch;" data-reveal>
+            <div
+              style="flex:none;width:16px;height:16px;border-radius:50%;background:var(--accent,#E8714F);margin-top:4px;">
+            </div>
+            <div>
+              <div style="font:600 18px/1.4 'Inter',sans-serif;color:#171824;">Why mobile first?</div>
+              <p style="font:400 18px/1.7 'Inter',sans-serif;color:#424467;margin:6px 0 0;text-wrap:pretty;">Because the
+                real behaviour, and the live adaptation, happen while you're out.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ PRODUCT JOURNEY (connected) ============================ -->
+      <section data-screen-label="Product journey"
+        style="position:relative;padding:104px 56px 120px;background:linear-gradient(180deg,#F6F5FA 0%,#FBF0E9 14%,#F9EAE2 40%,#F8E7DE 55%,#FAEDE6 78%,#F6F5FA 100%);overflow:hidden;">
+        <div
+          style="position:absolute;left:-180px;top:14%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(232,113,79,0.12) 0%,transparent 70%);pointer-events:none;">
+        </div>
+        <div
+          style="position:absolute;right:-200px;top:46%;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(232,113,79,0.10) 0%,transparent 70%);pointer-events:none;">
+        </div>
+        <div
+          style="position:absolute;left:-160px;top:78%;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(150,120,228,0.08) 0%,transparent 70%);pointer-events:none;">
+        </div>
+
+        <div style="max-width:1120px;margin:0 auto;position:relative;">
+          <div
+            style="font:700 13px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep,#C9512F);"
+            data-reveal>The solution, screen by screen</div>
+          <h2
+            style="font:500 clamp(32px,4.4vw,58px)/1.08 'Newsreader',serif;letter-spacing:-0.015em;color:#171824;margin:22px 0 0;max-width:20ch;text-wrap:pretty;"
+            data-reveal>From who you are to where you are</h2>
+
+          <div style="margin-top:72px;">
+
+            <!-- PHASE 01 · TRAVEL DNA -->
+            <div style="display:grid;grid-template-columns:54px 1fr;gap:28px;">
+              <div style="position:relative;">
+                <div
+                  style="position:absolute;left:50%;transform:translateX(-50%);top:30px;bottom:-72px;width:2px;background:linear-gradient(180deg,rgba(232,113,79,0.5),rgba(232,113,79,0.4));">
+                </div>
+                <div
+                  style="position:relative;z-index:1;width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid var(--accent,#E8714F);display:flex;align-items:center;justify-content:center;font:600 17px/1 'Newsreader',serif;color:var(--accent-deep,#C9512F);box-shadow:0 6px 18px rgba(232,113,79,0.22);">
+                  01</div>
+              </div>
+              <div style="padding-bottom:72px;">
+
+                <div
+                  style="font:700 12px/1 'Inter';letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep,#C9512F);"
+                  data-reveal>Travel DNA</div>
+
+                <h3
+                  style="font:500 clamp(22px,2.8vw,36px)/1.1 'Newsreader',serif;font-style:italic;letter-spacing:-0.01em;color:#171824;margin:14px 0 0;max-width:28ch;text-wrap:pretty;"
+                  data-reveal>
+                  How do you help someone describe a trip they haven't fully imagined yet?
+                </h3>
+
+                <p style="font:400 17px/1.65 'Inter',sans-serif;color:#424467;margin:22px 0 0;max-width:58ch;text-wrap:pretty;"
+                  data-reveal>
+                  Few of us have a trip fully formed in our heads. So the Travel DNA isn't a questionnaire, it forms
+                  through a light, guided conversation.
+                </p>
+
+                <!-- Annotated mockup -->
+                <div style="margin:48px 0 0;" data-reveal="60">
+                  <div style="position:relative;width:100%;max-width:900px;height:540px;">
+
+                    <!-- LEFT cards: Talk, Tap, Type, Upload — shifted right -->
+                    <div style="position:absolute;left:240px;top:100px;width:190px;z-index:4;">
+                      <div
+                        style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                        <div
+                          style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                          Talk</div>
+                        <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">just speak naturally</div>
+                      </div>
+                    </div>
+
+                    <div style="position:absolute;left:240px;top:250px;width:190px;z-index:4;">
+                      <div
+                        style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                        <div
+                          style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                          Tap</div>
+                        <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">ready-made starters, when
+                          you don't know where to begin</div>
+                      </div>
+                    </div>
+
+                    <div style="position:absolute;left:240px;top:330px;width:190px;z-index:4;">
+                      <div
+                        style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                        <div
+                          style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                          Type</div>
+                        <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">or write it your way</div>
+                      </div>
+                    </div>
+
+                    <div style="position:absolute;left:240px;top:440px;width:190px;z-index:4;">
+                      <div
+                        style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                        <div
+                          style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                          Upload</div>
+                        <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">drop in tickets,
+                          screenshots, links</div>
+                      </div>
+                    </div>
+
+                    <!-- Phone 1: Trip.PNG — rotated left –7° -->
+                    <div
+                      style="position:absolute;left:510px;top:24px;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;transform:rotate(-7deg);transform-origin:50% 100%;z-index:1;">
+                      <div
+                        style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:72px;height:20px;border-radius:12px;background:#000;z-index:3;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:64px;width:4px;height:16px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:90px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:126px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;right:-4px;top:100px;width:4px;height:42px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:27px;overflow:hidden;background:#000;">
+                        <img src="uploads/Trip.PNG" alt="Trip screen"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" />
+                      </div>
+                    </div>
+
+                    <!-- Phone 2: Blueprint.jpeg — rotated right +7° -->
+                    <div
+                      style="position:absolute;left:680px;top:24px;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;transform:rotate(7deg);transform-origin:50% 100%;z-index:2;">
+                      <div
+                        style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:72px;height:20px;border-radius:12px;background:#000;z-index:3;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:64px;width:4px;height:16px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:90px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:126px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;right:-4px;top:100px;width:4px;height:42px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:27px;overflow:hidden;background:#000;">
+                        <img src="uploads/Blueprint.jpeg" alt="Blueprint screen"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" />
+                      </div>
+                    </div>
+
+                    <!-- SVG lines -->
+                    <svg
+                      style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3;"
+                      viewBox="0 0 900 540" preserveAspectRatio="xMidYMid meet">
+                      <!-- Talk → left phone -->
+                      <line x1="430" y1="122" x2="570" y2="200" stroke="#E8714F" stroke-width="1.5"
+                        stroke-opacity="0.55" />
+                      <circle cx="570" cy="200" r="3.5" fill="#E8714F" />
+                      <!-- Tap → bottom chips of left phone -->
+                      <line x1="430" y1="272" x2="580" y2="448" stroke="#E8714F" stroke-width="1.5"
+                        stroke-opacity="0.55" />
+                      <circle cx="580" cy="448" r="3.5" fill="#E8714F" />
+                      <!-- Upload → "+" bottom-left of left phone -->
+                      <line x1="430" y1="462" x2="525" y2="486" stroke="#E8714F" stroke-width="1.5"
+                        stroke-opacity="0.55" />
+                      <circle cx="525" cy="486" r="3.5" fill="#E8714F" />
+                    </svg>
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+            <!-- PHASE 02 · PLACES -->
+            <div style="display:grid;grid-template-columns:54px 1fr;gap:28px;">
+              <div style="position:relative;">
+                <div
+                  style="position:absolute;left:50%;transform:translateX(-50%);top:30px;bottom:-72px;width:2px;background:linear-gradient(180deg,rgba(232,113,79,0.5),rgba(232,113,79,0.4));">
+                </div>
+                <div
+                  style="position:relative;z-index:1;width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid var(--accent,#E8714F);display:flex;align-items:center;justify-content:center;font:600 17px/1 'Newsreader',serif;color:var(--accent-deep,#C9512F);box-shadow:0 6px 18px rgba(232,113,79,0.22);">
+                  02</div>
+              </div>
+              <div style="padding-bottom:72px;">
+
+                <div
+                  style="font:700 12px/1 'Inter';letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep,#C9512F);"
+                  data-reveal>Places</div>
+
+                <!-- Two-column: text left, fan right -->
+                <div style="display:flex;gap:52px;align-items:center;flex-wrap:wrap;margin-top:14px;" data-reveal>
+
+                  <!-- Left: title + body -->
+                  <div style="flex:1 1 300px;min-width:260px;">
+                    <h3
+                      style="font:500 clamp(22px,2.8vw,36px)/1.1 'Newsreader',serif;font-style:italic;letter-spacing:-0.01em;color:#171824;margin:0;max-width:30ch;text-wrap:pretty;">
+                      What if exploring also told you what's worth it?
+                    </h3>
+                    <p style="font:400 17px/1.65 'Inter',sans-serif;color:#424467;margin:22px 0 0;text-wrap:pretty;">
+                      People already explore in three ways: maps, visual scrolling, search, but scattered across apps
+                      and with no reason to trust. Places brings them into one, and adds what's missing.
+                    </p>
+                  </div>
+
+                  <!-- Right: fan (smaller, detail shown below) -->
+                  <div style="flex:0 0 auto;position:relative;width:340px;height:272px;align-self:center;">
+                    <div
+                      style="position:absolute;left:10px;bottom:0;width:118px;height:255px;border-radius:20px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 18px 40px -12px rgba(0,0,0,0.5);padding:5px;transform:rotate(-11deg);transform-origin:50% 100%;z-index:1;overflow:hidden;">
+                      <div
+                        style="position:absolute;left:50%;top:7px;transform:translateX(-50%);width:38px;height:10px;border-radius:6px;background:#000;z-index:2;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:15px;overflow:hidden;background:#000;"><img
+                          src="uploads/Places_areas.PNG" alt="Areas"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+                    </div>
+                    <div
+                      style="position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:118px;height:255px;border-radius:20px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 24px 52px -16px rgba(0,0,0,0.55);padding:5px;z-index:3;overflow:hidden;">
+                      <div
+                        style="position:absolute;left:50%;top:7px;transform:translateX(-50%);width:38px;height:10px;border-radius:6px;background:#000;z-index:2;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:15px;overflow:hidden;background:#000;"><img
+                          src="uploads/Places_story.PNG" alt="Story"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+                    </div>
+                    <div
+                      style="position:absolute;right:10px;bottom:0;width:118px;height:255px;border-radius:20px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 18px 40px -12px rgba(0,0,0,0.5);padding:5px;transform:rotate(11deg);transform-origin:50% 100%;z-index:2;overflow:hidden;">
+                      <div
+                        style="position:absolute;left:50%;top:7px;transform:translateX(-50%);width:38px;height:10px;border-radius:6px;background:#000;z-index:2;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:15px;overflow:hidden;background:#000;"><img
+                          src="uploads/Places_detail.PNG" alt="Detail"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Block 1: Map / Areas -->
+                <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:center;margin-top:64px;" data-reveal>
+                  <div style="flex:0 0 auto;margin:0 auto;">
+                    <div
+                      style="width:260px;height:563px;border-radius:44px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 48px 90px -22px rgba(0,0,0,0.55);padding:12px;position:relative;">
+                      <div
+                        style="position:absolute;left:50%;top:15px;transform:translateX(-50%);width:88px;height:22px;border-radius:13px;background:#000;z-index:2;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-5px;top:80px;width:5px;height:20px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-5px;top:112px;width:5px;height:32px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-5px;top:154px;width:5px;height:32px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;right:-5px;top:120px;width:5px;height:52px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:32px;overflow:hidden;background:#000;"><img
+                          src="uploads/Places_areas.PNG" alt="Map areas"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+                    </div>
+                  </div>
+                  <div style="flex:1 1 240px;min-width:200px;display:flex;flex-direction:column;gap:16px;">
+                    <div
+                      style="padding:20px 22px;border-radius:14px;background:rgba(255,255,255,0.72);border:1px solid rgba(23,24,36,0.08);">
+                      <div style="font:700 11px/1 'Inter';letter-spacing:.12em;text-transform:uppercase;color:#9a9aa6;">
+                        Familiar</div>
+                      <p style="font:400 16px/1.6 'Inter';color:#424467;margin:8px 0 0;text-wrap:pretty;">The map. Like
+                        the tool people use most to picture a new city.</p>
+                    </div>
+                    <div
+                      style="padding:20px 22px;border-radius:14px;background:rgba(232,113,79,0.07);border:1px solid rgba(232,113,79,0.2);">
+                      <div
+                        style="font:700 11px/1 'Inter';letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep,#C9512F);">
+                        Better</div>
+                      <p style="font:400 16px/1.6 'Inter';color:#3b3d5c;margin:8px 0 0;text-wrap:pretty;">Areas, not
+                        chaos. Spots grouped by neighbourhood, so you explore by zone.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Block 2: Stories / Images -->
+                <div
+                  style="display:flex;gap:40px;flex-wrap:wrap;align-items:center;margin-top:48px;flex-direction:row-reverse;"
+                  data-reveal="60">
+                  <div style="flex:0 0 auto;margin:0 auto;">
+                    <div
+                      style="width:260px;height:563px;border-radius:44px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 48px 90px -22px rgba(0,0,0,0.55);padding:12px;position:relative;">
+                      <div
+                        style="position:absolute;left:50%;top:15px;transform:translateX(-50%);width:88px;height:22px;border-radius:13px;background:#000;z-index:2;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-5px;top:80px;width:5px;height:20px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-5px;top:112px;width:5px;height:32px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-5px;top:154px;width:5px;height:32px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;right:-5px;top:120px;width:5px;height:52px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:32px;overflow:hidden;background:#000;"><img
+                          src="uploads/Places_story.PNG" alt="Story view"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+                    </div>
+                  </div>
+                  <div style="flex:1 1 240px;min-width:200px;display:flex;flex-direction:column;gap:16px;">
+                    <div
+                      style="padding:20px 22px;border-radius:14px;background:rgba(255,255,255,0.72);border:1px solid rgba(23,24,36,0.08);">
+                      <div style="font:700 11px/1 'Inter';letter-spacing:.12em;text-transform:uppercase;color:#9a9aa6;">
+                        Familiar</div>
+                      <p style="font:400 16px/1.6 'Inter';color:#424467;margin:8px 0 0;text-wrap:pretty;">The visual
+                        scroll. The Instagram and TikTok habit of seeing a place before deciding.</p>
+                    </div>
+                    <div
+                      style="padding:20px 22px;border-radius:14px;background:rgba(232,113,79,0.07);border:1px solid rgba(232,113,79,0.2);">
+                      <div
+                        style="font:700 11px/1 'Inter';letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep,#C9512F);">
+                        Better</div>
+                      <p style="font:400 16px/1.6 'Inter';color:#3b3d5c;margin:8px 0 0;text-wrap:pretty;">Curated, not
+                        endless. Real images of the actual spots, not a viral, over-touristy feed.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Block 3: Detail -->
+                <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:center;margin-top:48px;" data-reveal>
+                  <div style="flex:0 0 auto;margin:0 auto;">
+                    <div
+                      style="width:260px;height:563px;border-radius:44px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 48px 90px -22px rgba(0,0,0,0.55);padding:12px;position:relative;">
+                      <div
+                        style="position:absolute;left:50%;top:15px;transform:translateX(-50%);width:88px;height:22px;border-radius:13px;background:#000;z-index:2;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-5px;top:80px;width:5px;height:20px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-5px;top:112px;width:5px;height:32px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-5px;top:154px;width:5px;height:32px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;right:-5px;top:120px;width:5px;height:52px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:32px;overflow:hidden;background:#000;"><img
+                          src="uploads/Places_detail.PNG" alt="Detail view"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+                    </div>
+                  </div>
+                  <div style="flex:1 1 240px;min-width:200px;display:flex;flex-direction:column;gap:16px;">
+                    <div
+                      style="padding:20px 22px;border-radius:14px;background:rgba(255,255,255,0.72);border:1px solid rgba(23,24,36,0.08);">
+                      <div style="font:700 11px/1 'Inter';letter-spacing:.12em;text-transform:uppercase;color:#9a9aa6;">
+                        Familiar</div>
+                      <p style="font:400 16px/1.6 'Inter';color:#424467;margin:8px 0 0;text-wrap:pretty;">The deep
+                        search. Hours, prices, what it's like.</p>
+                    </div>
+                    <div
+                      style="padding:20px 22px;border-radius:14px;background:rgba(232,113,79,0.07);border:1px solid rgba(232,113,79,0.2);">
+                      <div
+                        style="font:700 11px/1 'Inter';letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep,#C9512F);">
+                        Better</div>
+                      <p style="font:400 16px/1.6 'Inter';color:#3b3d5c;margin:8px 0 0;text-wrap:pretty;">The part you
+                        can't Google. Why Mira picked it for you, like-a-local tips, and a Tripadvisor link for the
+                        rest.</p>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+            <!-- PHASE 03 · ITINERARY -->
+            <div style="display:grid;grid-template-columns:54px 1fr;gap:28px;">
+              <div style="position:relative;">
+                <div
+                  style="position:absolute;left:50%;transform:translateX(-50%);top:30px;bottom:-72px;width:2px;background:linear-gradient(180deg,rgba(232,113,79,0.5),rgba(232,113,79,0.4));">
+                </div>
+                <div
+                  style="position:relative;z-index:1;width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid var(--accent,#E8714F);display:flex;align-items:center;justify-content:center;font:600 17px/1 'Newsreader',serif;color:var(--accent-deep,#C9512F);box-shadow:0 6px 18px rgba(232,113,79,0.22);">
+                  03</div>
+              </div>
+              <div style="padding-bottom:72px;">
+
+                <div
+                  style="font:700 12px/1 'Inter';letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep,#C9512F);"
+                  data-reveal>Itinerary</div>
+
+                <h3
+                  style="font:500 clamp(22px,2.8vw,36px)/1.1 'Newsreader',serif;font-style:italic;letter-spacing:-0.01em;color:#171824;margin:14px 0 0;max-width:30ch;text-wrap:pretty;"
+                  data-reveal>
+                  A day that fits how you travel, not a timetable to obey.
+                </h3>
+
+                <p style="font:400 17px/1.65 'Inter',sans-serif;color:#424467;margin:22px 0 0;max-width:58ch;text-wrap:pretty;"
+                  data-reveal>
+                  A good day isn't packed to the minute. Mira shapes each one around how you actually want to travel,
+                  and leaves it open for you to change.
+                </p>
+
+                <!-- Block 1: Day character + Reshape — caption card left, fanned phones center, tune callout right -->
+                <div style="position:relative;max-width:900px;height:540px;margin:52px 0 0;" data-reveal="60">
+
+                  <!-- Caption card (left) — connects to "Balanced pace" area on phone 1 -->
+                  <div style="position:absolute;left:0;top:140px;width:190px;z-index:4;">
+                    <div
+                      style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                      <div style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                        The feel of the day</div>
+                      <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">Before the stops, Mira shows
+                        how the day will actually feel: pace, mood, indoor or out, how much you move. A glance, and you
+                        know if it's your kind of day.</div>
+                    </div>
+                  </div>
+
+                  <!-- Phone 1: itinerary_2 — fanned left, –7° around bottom centre -->
+                  <div
+                    style="position:absolute;left:270px;top:24px;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;transform:rotate(-7deg);transform-origin:50% 100%;z-index:1;">
+                    <div
+                      style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:72px;height:20px;border-radius:12px;background:#000;z-index:2;">
+                    </div>
+                    <div
+                      style="position:absolute;left:-4px;top:64px;width:4px;height:16px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                    </div>
+                    <div
+                      style="position:absolute;left:-4px;top:90px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                    </div>
+                    <div
+                      style="position:absolute;left:-4px;top:126px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                    </div>
+                    <div
+                      style="position:absolute;right:-4px;top:100px;width:4px;height:42px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                    </div>
+                    <div style="width:100%;height:100%;border-radius:27px;overflow:hidden;background:#000;"><img
+                        src="uploads/itinerary_2.PNG" alt="Day character"
+                        style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+                  </div>
+
+                  <!-- Phone 2: itinerary_reshape — fanned right, +7° around bottom centre -->
+                  <div
+                    style="position:absolute;left:440px;top:24px;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;transform:rotate(7deg);transform-origin:50% 100%;z-index:2;">
+                    <div
+                      style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:72px;height:20px;border-radius:12px;background:#000;z-index:2;">
+                    </div>
+                    <div
+                      style="position:absolute;left:-4px;top:64px;width:4px;height:16px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                    </div>
+                    <div
+                      style="position:absolute;left:-4px;top:90px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                    </div>
+                    <div
+                      style="position:absolute;left:-4px;top:126px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                    </div>
+                    <div
+                      style="position:absolute;right:-4px;top:100px;width:4px;height:42px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                    </div>
+                    <div style="width:100%;height:100%;border-radius:27px;overflow:hidden;background:#000;"><img
+                        src="uploads/itinerary_reshape.PNG" alt="Reshape in action"
+                        style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+                  </div>
+
+                  <!-- Tune this day callout (right) — connects to toast on phone 2 -->
+                  <div style="position:absolute;right:-35px;top:238px;width:195px;z-index:4;">
+                    <div
+                      style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                      <div style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                        Tune this day</div>
+                      <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">Not right? Reshape it in one
+                        tap. Slower, more food, more local. Mira rebuilds the day around it.</div>
+                    </div>
+                  </div>
+
+                  <!-- SVG annotation lines (viewBox 900×540)
+                       Anchors calculated from –7°/+7° rotation around each phone's bottom centre.
+                       Phone 1 pivot (380,500): left edge at "Balanced pace" ~34% → (233,204)
+                       Phone 2 pivot (550,500): right edge at toast ~53%          → (680,290) -->
+                  <svg
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3;"
+                    viewBox="0 0 900 540" preserveAspectRatio="xMidYMid meet">
+                    <line x1="190" y1="204" x2="233" y2="204" stroke="#E8714F" stroke-width="1.5"
+                      stroke-opacity="0.5" />
+                    <circle cx="233" cy="204" r="3.5" fill="#E8714F" />
+                    <line x1="740" y1="290" x2="680" y2="290" stroke="#E8714F" stroke-width="1.5"
+                      stroke-opacity="0.5" />
+                    <circle cx="680" cy="290" r="3.5" fill="#E8714F" />
+                  </svg>
+
+                </div>
+
+                <!-- Block 2: Stops with why (itinerary_1) — caption card right, phone center, callout left -->
+                <div style="position:relative;max-width:900px;height:590px;margin:48px 0 0;" data-reveal>
+
+                  <!-- Caption card (right) — connects to top of first stop card ~24% -->
+                  <div style="position:absolute;right:0;top:100px;width:200px;z-index:3;">
+                    <div
+                      style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                      <div style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                        The day itself</div>
+                      <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">Stops that fit your goals,
+                        whether you want to slow down or see it all. Realistic timing, room to breathe.</div>
+                    </div>
+                  </div>
+
+                  <div
+                    style="position:absolute;left:320px;top:14px;width:260px;height:563px;border-radius:44px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 48px 90px -22px rgba(0,0,0,0.55);padding:12px;z-index:1;">
+                    <div
+                      style="position:absolute;left:50%;top:15px;transform:translateX(-50%);width:88px;height:22px;border-radius:13px;background:#000;z-index:2;">
+                    </div>
+                    <div
+                      style="position:absolute;left:-5px;top:80px;width:5px;height:20px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                    </div>
+                    <div
+                      style="position:absolute;left:-5px;top:112px;width:5px;height:32px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                    </div>
+                    <div
+                      style="position:absolute;left:-5px;top:154px;width:5px;height:32px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                    </div>
+                    <div
+                      style="position:absolute;right:-5px;top:120px;width:5px;height:52px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                    </div>
+                    <div style="width:100%;height:100%;border-radius:32px;overflow:hidden;background:#000;"><img
+                        src="uploads/itinerary_1.PNG" alt="Day stops"
+                        style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+                  </div>
+
+                  <!-- Why Mira picked this callout (left) — connects to orange explanation box ~53% -->
+                  <div style="position:absolute;left:0;top:285px;width:220px;z-index:3;">
+                    <div
+                      style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                      <div style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                        Why Mira picked this</div>
+                      <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">Every stop explains itself.
+                        Why it's here, and why right now. A reason you can trust, not blind faith.</div>
+                    </div>
+                  </div>
+
+                  <!-- SVG annotation lines (viewBox 900×590)
+                       caption card left (700,150) → phone right content (572) at top of first stop card ~24%
+                       why mira callout right (220,315) → phone left content (328) at orange box ~53% -->
+                  <svg
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:2;"
+                    viewBox="0 0 900 590" preserveAspectRatio="xMidYMid meet">
+                    <line x1="700" y1="150" x2="572" y2="150" stroke="#E8714F" stroke-width="1.5"
+                      stroke-opacity="0.5" />
+                    <circle cx="572" cy="150" r="3.5" fill="#E8714F" />
+                    <line x1="220" y1="335" x2="345" y2="335" stroke="#E8714F" stroke-width="1.5"
+                      stroke-opacity="0.5" />
+                    <circle cx="345" cy="335" r="3.5" fill="#E8714F" />
+                  </svg>
+                </div>
+
+
+              </div>
+            </div>
+
+            <!-- PHASE 04 · LIVE (premium) -->
+            <div style="display:grid;grid-template-columns:54px 1fr;gap:28px;">
+              <div style="position:relative;">
+                <div
+                  style="position:absolute;left:50%;transform:translateX(-50%);top:30px;bottom:-72px;width:2px;background:linear-gradient(180deg,rgba(232,113,79,0.5),rgba(232,113,79,0.4));">
+                </div>
+                <div
+                  style="position:relative;z-index:1;width:48px;height:48px;border-radius:50%;background:var(--accent,#E8714F);border:2px solid var(--accent,#E8714F);display:flex;align-items:center;justify-content:center;font:600 17px/1 'Newsreader',serif;color:#fff;box-shadow:0 6px 20px rgba(232,113,79,0.4);">
+                  04</div>
+              </div>
+              <div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;" data-reveal>
+                  <span
+                    style="width:8px;height:8px;border-radius:50%;background:#E8714F;display:inline-block;box-shadow:0 0 8px rgba(232,113,79,0.6);animation:mira_pulse 1.8s ease-out infinite;"></span>
+                  <span
+                    style="font:700 12px/1 'Inter';letter-spacing:.16em;text-transform:uppercase;color:#E8714F;">Live
+                    · Premium</span>
+                </div>
+                <div style="border-radius:28px;background:#13141d;padding:48px;position:relative;overflow:hidden;">
+
+                  <!-- ambient glows -->
+                  <div
+                    style="position:absolute;right:-120px;top:-120px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(232,113,79,0.14) 0%,transparent 68%);pointer-events:none;">
+                  </div>
+                  <div
+                    style="position:absolute;left:-80px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(232,113,79,0.07) 0%,transparent 68%);pointer-events:none;">
+                  </div>
+
+                  <!-- Header -->
+                  <div style="position:relative;" data-reveal>
+                    <h3
+                      style="font:500 clamp(22px,2.8vw,36px)/1.1 'Newsreader',serif;font-style:italic;letter-spacing:-0.01em;color:#fff;margin:16px 0 0;max-width:28ch;text-wrap:pretty;">
+                      What happens when the day doesn't go to plan?</h3>
+                    <p
+                      style="font:400 17px/1.65 'Inter';color:rgba(255,255,255,0.65);margin:22px 0 0;max-width:58ch;text-wrap:pretty;">
+                      You've explored, you've got your days. Then it rains, a bus is late, a queue builds. Most apps
+                      send a notification and leave the problem to you. Mira handles it while you're out.</p>
+                  </div>
+
+                  <!-- ── MOMENTO 1+2: fanned phones ── -->
+                  <div style="position:relative;width:100%;max-width:900px;height:580px;margin:64px 0 0;"
+                    data-reveal="60">
+
+                    <!-- Left cards: IT RESHAPES (left phone) + IT ACTS (right phone) -->
+                    <div style="position:absolute;left:0;top:80px;width:195px;z-index:4;">
+                      <div
+                        style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:9px;padding:12px 14px;">
+                        <div
+                          style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#E8714F;">
+                          It reshapes the day</div>
+                        <div style="font:400 12px/1.45 'Inter';color:rgba(255,255,255,0.62);margin-top:5px;">Rain at
+                          15:00? Your stops are already moved indoors, nothing lost. One calm line, not a wall of
+                          alerts.</div>
+                      </div>
+                    </div>
+
+                    <div style="position:absolute;left:0;top:310px;width:195px;z-index:4;">
+                      <div
+                        style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:9px;padding:12px 14px;">
+                        <div
+                          style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#E8714F;">
+                          Smooth day</div>
+                        <div style="font:400 12px/1.45 'Inter';color:rgba(255,255,255,0.62);margin-top:5px;">Everything that could derail the day, watched, so you don't have to.
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Phone 1: live_reshape.jpeg — rotated –7° -->
+                    <div
+                      style="position:absolute;left:270px;top:24px;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;transform:rotate(-7deg);transform-origin:50% 100%;z-index:1;">
+                      <div
+                        style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:72px;height:20px;border-radius:12px;background:#000;z-index:3;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:64px;width:4px;height:16px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:90px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:126px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;right:-4px;top:100px;width:4px;height:42px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:27px;overflow:hidden;background:#000;">
+                        <img src="uploads/live_reshape.jpeg" alt="Day reshaped"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" />
+                      </div>
+                    </div>
+
+                    <!-- Phone 2: live_handled_def.jpeg — rotated +7° -->
+                    <div
+                      style="position:absolute;left:440px;top:24px;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;transform:rotate(7deg);transform-origin:50% 100%;z-index:2;">
+                      <div
+                        style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:72px;height:20px;border-radius:12px;background:#000;z-index:3;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:64px;width:4px;height:16px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:90px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:126px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;right:-4px;top:100px;width:4px;height:42px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:27px;overflow:hidden;background:#000;">
+                        <img src="uploads/live_handled_def.jpeg" alt="What Mira handled"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" />
+                      </div>
+                    </div>
+
+                    <!-- Right cards: SMOOTH DAY (left phone) + AND WHENEVER YOU WANT (right phone) -->
+                    <div style="position:absolute;right:-40px;top:150px;width:195px;z-index:4;">
+                      <div
+                        style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:9px;padding:12px 14px;">
+                        <div
+                          style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#E8714F;">
+                          It acts, then shows its work.</div>
+                        <div style="font:400 12px/1.45 'Inter';color:rgba(255,255,255,0.62);margin-top:5px;">Instead of
+                          asking you to approve every change, Mira handles it and tells you after, with the outcome that
+                          matters.</div>
+                      </div>
+                    </div>
+
+                    <div style="position:absolute;right:0;top:360px;width:195px;z-index:4;">
+                      <div
+                        style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:9px;padding:12px 14px;">
+                        <div
+                          style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#E8714F;">
+                          Ask anytime, change anything</div>
+                        <div style="font:400 12px/1.45 'Inter';color:rgba(255,255,255,0.62);margin-top:5px;">None of it is imposed. Whatever Mira does, you can reshape, anytime.</div>
+                      </div>
+                    </div>
+
+                    <!-- SVG lines -->
+                    <svg
+                      style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3;"
+                      viewBox="0 0 900 580" preserveAspectRatio="xMidYMid meet">
+                      <!-- IT RESHAPES → left phone -->
+                      <line x1="195" y1="120" x2="305" y2="160" stroke="#E8714F" stroke-width="1.5"
+                        stroke-opacity="0.65" />
+                      <circle cx="305" cy="160" r="3.5" fill="#E8714F" />
+                      <!-- SMOOTH DAY → left phone -->
+                      <line x1="195" y1="310" x2="272" y2="310" stroke="#E8714F" stroke-width="1.5"
+                        stroke-opacity="0.65" />
+                      <circle cx="272" cy="310" r="3.5" fill="#E8714F" />
+                      <!-- IT ACTS → right phone -->
+                      <line x1="745" y1="210" x2="658" y2="210" stroke="#E8714F" stroke-width="1.5"
+                        stroke-opacity="0.65" />
+                      <circle cx="658" cy="210" r="3.5" fill="#E8714F" />
+                      <!-- AND WHENEVER YOU WANT → right phone -->
+                      <line x1="705" y1="400" x2="610" y2="400" stroke="#E8714F" stroke-width="1.5"
+                        stroke-opacity="0.65" />
+                      <circle cx="610" cy="400" r="3.5" fill="#E8714F" />
+                    </svg>
+                  </div>
+
+                  <!-- ── MOMENTO 3: spots + asks ── -->
+                  <!-- left card → opportunities radar ~40% / right card → Mira bar ~68% -->
+                  <div style="position:relative;width:100%;max-width:900px;height:540px;margin:80px 0 0;"
+                    data-reveal="60">
+
+                    <div style="position:absolute;left:100px;top:125px;width:195px;z-index:3;">
+                      <div
+                        style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:9px;padding:12px 14px;">
+                        <div
+                          style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#E8714F;">
+                          It also catches what you'd miss.</div>
+                        <div style="font:400 12px/1.45 'Inter';color:rgba(255,255,255,0.62);margin-top:5px;">A live
+                          radar of opportunities near you, tap to add, never pushed.</div>
+                      </div>
+                    </div>
+
+                    <div
+                      style="position:absolute;left:340px;top:32px;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;z-index:1;">
+                      <div
+                        style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:72px;height:20px;border-radius:12px;background:#000;z-index:2;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:64px;width:4px;height:16px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:90px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;left:-4px;top:126px;width:4px;height:26px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                      </div>
+                      <div
+                        style="position:absolute;right:-4px;top:100px;width:4px;height:42px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                      </div>
+                      <div style="width:100%;height:100%;border-radius:27px;overflow:hidden;background:#000;"><img
+                          src="uploads/live_opportunities.PNG" alt="Opportunities radar"
+                          style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+                    </div>
+
+                    <svg
+                      style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:2;"
+                      viewBox="0 0 900 540" preserveAspectRatio="xMidYMid meet">
+                      <line x1="295" y1="172" x2="368" y2="172" stroke="#E8714F" stroke-width="1.5"
+                        stroke-opacity="0.65" />
+                      <circle cx="368" cy="172" r="3.5" fill="#E8714F" />
+                    </svg>
+                  </div>
+
+                  <!-- ── Closing line ── -->
+
+                </div>
+              </div>
+            </div>
+
+            <!-- PHASE 05 · HOME (the return — where everything settles) -->
+            <div style="display:grid;grid-template-columns:54px 1fr;gap:28px;margin-top:72px;">
+              <div style="position:relative;">
+                <div
+                  style="position:absolute;left:50%;transform:translateX(-50%);top:30px;bottom:0;width:2px;background:linear-gradient(180deg,rgba(232,113,79,0.4),transparent);">
+                </div>
+                <div
+                  style="position:relative;z-index:1;width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid var(--accent,#E8714F);display:flex;align-items:center;justify-content:center;font:600 17px/1 'Newsreader',serif;color:var(--accent-deep,#C9512F);box-shadow:0 6px 18px rgba(232,113,79,0.22);">
+                  05</div>
+              </div>
+              <div>
+
+                <!-- Heading block -->
+                <div data-reveal>
+                  <div
+                    style="font:700 12px/1 'Inter';letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep,#C9512F);">
+                    Home</div>
+                  <h3
+                    style="font:500 clamp(22px,2.8vw,36px)/1.1 'Newsreader',serif;font-style:italic;letter-spacing:-0.01em;color:#171824;margin:16px 0 0;max-width:30ch;text-wrap:pretty;">
+                    After all the planning, a place that simply feels like yours.</h3>
+                  <p style="font:400 17px/1.65 'Inter';color:#424467;margin:22px 0 0;max-width:58ch;text-wrap:pretty;">
+                    The Home is where it all settles: your trips in motion, the places you've been, and what's next. No
+                    dashboards, just your travel life at a glance.</p>
+                </div>
+
+                <!-- Annotation layout: fanned two phones, 3 cards -->
+                <div style="position:relative;width:100%;max-width:900px;height:540px;margin:52px 0 0;"
+                  data-reveal="60">
+
+                  <!-- Card 1: YOUR TRIPS (left) -->
+                  <div style="position:absolute;left:0;top:140px;width:205px;z-index:3;">
+                    <div
+                      style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                      <div style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                        Your trips, in motion</div>
+                      <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">Each trip lives in its own
+                        space, ready to pick up where you left off. Not a to-do list, a set of journeys.</div>
+                    </div>
+                  </div>
+
+                  <!-- Card 2: WHERE YOU'VE BEEN (left) -->
+                  <div style="position:absolute;left:0;top:320px;width:205px;z-index:3;">
+                    <div
+                      style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                      <div style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                        Where you've been</div>
+                      <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">A quiet map of past trips.
+                        Not statistics to optimize, memory to enjoy. This is what makes Mira a companion over time.
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Phone 1: home_M.jpeg — rotated –7° -->
+                  <div style="position:absolute;left:270px;top:24px;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;transform:rotate(-7deg);transform-origin:50% 100%;z-index:1;">
+                    <div style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:76px;height:19px;border-radius:10px;background:#000;z-index:2;"></div>
+                    <div style="position:absolute;left:-4px;top:70px;width:4px;height:17px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                    <div style="position:absolute;left:-4px;top:97px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                    <div style="position:absolute;left:-4px;top:135px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                    <div style="position:absolute;right:-4px;top:105px;width:4px;height:45px;border-radius:0 2px 2px 0;background:#2c2c2e;"></div>
+                    <div style="width:100%;height:100%;border-radius:28px;overflow:hidden;background:#000;">
+                      <img src="uploads/home_M.jpeg" alt="Home screen" style="width:100%;height:100%;object-fit:cover;display:block;" />
+                    </div>
+                  </div>
+
+                  <!-- Phone 2: home_2 — rotated +7° -->
+                  <div style="position:absolute;left:440px;top:24px;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;transform:rotate(7deg);transform-origin:50% 100%;z-index:2;">
+                    <div style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:76px;height:19px;border-radius:10px;background:#000;z-index:2;"></div>
+                    <div style="position:absolute;left:-4px;top:70px;width:4px;height:17px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                    <div style="position:absolute;left:-4px;top:97px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                    <div style="position:absolute;left:-4px;top:135px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                    <div style="position:absolute;right:-4px;top:105px;width:4px;height:45px;border-radius:0 2px 2px 0;background:#2c2c2e;"></div>
+                    <div style="width:100%;height:100%;border-radius:28px;overflow:hidden;background:#000;">
+                      <img src="uploads/home_2.PNG" alt="Home screen 2" style="width:100%;height:100%;object-fit:cover;display:block;" />
+                    </div>
+                  </div>
+
+                  <!-- Card 3: WHAT'S NEXT (right of right phone) -->
+                  <div style="position:absolute;right:-40px;top:260px;width:205px;z-index:3;">
+                    <div
+                      style="background:#fff;border:1px solid rgba(23,24,36,0.1);border-radius:9px;padding:11px 14px;box-shadow:0 4px 14px -4px rgba(23,24,36,0.1);">
+                      <div style="font:700 11px/1 'Inter';letter-spacing:.08em;text-transform:uppercase;color:#171824;">
+                        What's next, picked for you</div>
+                      <div style="font:400 12px/1.45 'Inter';color:#65656A;margin-top:4px;">Suggestions from everything
+                        Mira has learned about you, not a generic trending list.</div>
+                    </div>
+                  </div>
+
+                  <svg
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3;"
+                    viewBox="0 0 900 540" preserveAspectRatio="xMidYMid meet">
+                    <!-- YOUR TRIPS → left phone -->
+                    <line x1="205" y1="170" x2="272" y2="170" stroke="#E8714F" stroke-width="1.5" stroke-opacity="0.5" />
+                    <circle cx="272" cy="170" r="3.5" fill="#E8714F" />
+                    <!-- WHERE YOU'VE BEEN → left phone -->
+                    <line x1="205" y1="350" x2="272" y2="350" stroke="#E8714F" stroke-width="1.5" stroke-opacity="0.5" />
+                    <circle cx="272" cy="350" r="3.5" fill="#E8714F" />
+                    <!-- WHAT'S NEXT → right phone (centre-right) -->
+                    <line x1="735" y1="290" x2="630" y2="290" stroke="#E8714F" stroke-width="1.5" stroke-opacity="0.5" />
+                    <circle cx="630" cy="290" r="3.5" fill="#E8714F" />
+                  </svg>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ MIRA GLOBAL (+ anti-chat) ============================ -->
+      <section data-screen-label="Mira" style="padding:128px 56px;background:#F6F5FA;">
+        <div style="max-width:1120px;margin:0 auto;">
+          <div style="text-align:center;">
+            <div
+              style="font:700 13px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep,#C9512F);"
+              data-reveal>The global Mira component</div>
+            <h2
+              style="font:500 clamp(32px,4.4vw,58px)/1.1 'Newsreader',serif;letter-spacing:-0.015em;color:#171824;margin:22px auto 0;max-width:18ch;text-wrap:pretty;"
+              data-reveal>One Mira, everywhere</h2>
+            <p style="font:400 20px/1.65 'Inter',sans-serif;color:#424467;margin:22px auto 0;max-width:54ch;text-wrap:pretty;"
+              data-reveal>Access from a single anchored bar, identical on every screen, only the contextual question
+              changes. You type, and the interface shifts in place. No empty chat box.</p>
+            <!-- 3-phone fanned layout -->
+            <div style="position:relative;width:660px;height:540px;margin:64px auto 0;" data-reveal>
+              <!-- Left phone: global_places -->
+              <div
+                style="position:absolute;left:20px;bottom:0;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;transform:rotate(-10deg);transform-origin:50% 100%;z-index:1;">
+                <div
+                  style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:76px;height:19px;border-radius:10px;background:#000;z-index:2;">
+                </div>
+                <div
+                  style="position:absolute;left:-4px;top:70px;width:4px;height:17px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;left:-4px;top:97px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;left:-4px;top:135px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;right:-4px;top:105px;width:4px;height:45px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                </div>
+                <div style="width:100%;height:100%;border-radius:28px;overflow:hidden;background:#000;">
+                  <img src="uploads/global_places.PNG" alt="Mira in Places"
+                    style="width:100%;height:100%;object-fit:cover;display:block;" />
+                </div>
+              </div>
+              <!-- Center phone: global_itinerary -->
+              <div
+                style="position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;z-index:3;">
+                <div
+                  style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:76px;height:19px;border-radius:10px;background:#000;z-index:2;">
+                </div>
+                <div
+                  style="position:absolute;left:-4px;top:70px;width:4px;height:17px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;left:-4px;top:97px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;left:-4px;top:135px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;right:-4px;top:105px;width:4px;height:45px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                </div>
+                <div style="width:100%;height:100%;border-radius:28px;overflow:hidden;background:#000;">
+                  <img src="uploads/global_itinerary.PNG" alt="Mira in Itinerary"
+                    style="width:100%;height:100%;object-fit:cover;display:block;" />
+                </div>
+              </div>
+              <!-- Right phone: global_live -->
+              <div
+                style="position:absolute;right:20px;bottom:0;width:220px;height:476px;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;transform:rotate(10deg);transform-origin:50% 100%;z-index:2;">
+                <div
+                  style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:76px;height:19px;border-radius:10px;background:#000;z-index:2;">
+                </div>
+                <div
+                  style="position:absolute;left:-4px;top:70px;width:4px;height:17px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;left:-4px;top:97px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;left:-4px;top:135px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;">
+                </div>
+                <div
+                  style="position:absolute;right:-4px;top:105px;width:4px;height:45px;border-radius:0 2px 2px 0;background:#2c2c2e;">
+                </div>
+                <div style="width:100%;height:100%;border-radius:28px;overflow:hidden;background:#000;">
+                  <img src="uploads/global_live.PNG" alt="Mira in Live"
+                    style="width:100%;height:100%;object-fit:cover;display:block;" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================ TESTING ============================ -->
+      <section data-screen-label="Testing" style="padding:128px 56px;background:#F6F5FA;">
+        <div style="max-width:1120px;margin:0 auto;">
+          <div style="font:700 13px/1 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep,#C9512F);" data-reveal>Testing</div>
+          <h2 style="font:500 clamp(32px,4.4vw,58px)/1.08 'Newsreader',serif;letter-spacing:-0.015em;color:#171824;margin:22px 0 0;max-width:18ch;" data-reveal>What changed, and why</h2>
+          <p style="font:400 20px/1.65 'Inter',sans-serif;color:#424467;margin:22px 0 0;max-width:56ch;text-wrap:pretty;" data-reveal>Testing the prototype with people, without explaining it, surfaced two changes that reshaped the experience.</p>
+
+          <!-- MOMENTO 1: Interaction design — protagonist -->
+          <div style="margin-top:56px;padding:40px;border-radius:24px;background:#FCFBF8;border:1px solid rgba(232,113,79,0.2);box-shadow:0 4px 24px rgba(232,113,79,0.06);" data-reveal>
+
+            <!-- text block -->
+            <div style="font:700 12px/1 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep,#C9512F);">Interaction design</div>
+            <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px;max-width:72ch;">
+              <div>
+                <span style="font:700 11px/1 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#9a9aa6;">Problem</span>
+                <p style="font:400 17px/1.6 'Inter',sans-serif;color:#424467;margin:6px 0 0;text-wrap:pretty;">Mira sat in the middle of the navigation bar, half tab, half button.<br>That in-between spot didn't say what it was, not clearly a section, not clearly a chat.</p>
+              </div>
+              <div>
+                <span style="font:700 11px/1 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep,#C9512F);">The fix</span>
+                <p style="font:400 17px/1.6 'Inter',sans-serif;color:#424467;margin:6px 0 0;text-wrap:pretty;">I moved it out into its own persistent spot, present on every screen.<br>Now it reads as a companion you can talk to anytime, not a place you visit.</p>
+              </div>
+            </div>
+
+            <!-- screens -->
+            <div style="display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-top:44px;">
+              <div style="text-align:center;">
+                <div style="font:700 11px 'Inter',sans-serif;letter-spacing:.12em;color:#9a9aa6;margin-bottom:14px;">BEFORE</div>
+                <div style="width:220px;height:476px;margin:0 auto;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;position:relative;">
+                  <div style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:76px;height:19px;border-radius:10px;background:#000;z-index:2;"></div>
+                  <div style="position:absolute;left:-4px;top:70px;width:4px;height:17px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;left:-4px;top:97px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;left:-4px;top:135px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;right:-4px;top:105px;width:4px;height:45px;border-radius:0 2px 2px 0;background:#2c2c2e;"></div>
+                  <div style="width:100%;height:100%;border-radius:28px;overflow:hidden;background:#000;">
+                    <img src="uploads/before.png" alt="Before: Mira in navigation bar" style="width:100%;height:100%;object-fit:cover;display:block;" />
+                  </div>
+                </div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font:700 11px 'Inter',sans-serif;letter-spacing:.12em;color:var(--accent-deep,#C9512F);margin-bottom:14px;">AFTER</div>
+                <div style="width:220px;height:476px;margin:0 auto;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(232,113,79,0.4),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;position:relative;">
+                  <div style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:76px;height:19px;border-radius:10px;background:#000;z-index:2;"></div>
+                  <div style="position:absolute;left:-4px;top:70px;width:4px;height:17px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;left:-4px;top:97px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;left:-4px;top:135px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;right:-4px;top:105px;width:4px;height:45px;border-radius:0 2px 2px 0;background:#2c2c2e;"></div>
+                  <div style="width:100%;height:100%;border-radius:28px;overflow:hidden;background:#000;">
+                    <img src="uploads/Trip_cover.jpeg" alt="After: Mira in its own persistent spot" style="width:100%;height:100%;object-fit:cover;display:block;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- MOMENTO 2: Information architecture — support -->
+          <div style="margin-top:32px;padding:40px;border-radius:24px;background:#FCFBF8;border:1px solid rgba(23,24,36,0.08);" data-reveal>
+
+            <!-- text block -->
+            <div style="font:700 12px/1 'Inter',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep,#C9512F);">Information architecture</div>
+            <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px;">
+              <div>
+                <span style="font:700 11px/1 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#9a9aa6;">Problem</span>
+                <p style="font:400 17px/1.6 'Inter',sans-serif;color:#424467;margin:6px 0 0;">The journey was split into two tabs:</p>
+                <ul style="font:400 17px/1.6 'Inter',sans-serif;color:#424467;margin:6px 0 0;padding-left:20px;">
+                  <li><strong>Build</strong> held everything about preparing the trip: finding places and building the itinerary.</li>
+                  <li><strong>My Trip</strong> held the live, in-trip part.</li>
+                </ul>
+                <p style="font:400 17px/1.6 'Inter',sans-serif;color:#424467;margin:8px 0 0;">But to users that separation made no sense: planning and traveling are one continuous experience, not two modes.</p>
+              </div>
+              <div>
+                <span style="font:700 11px/1 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep,#C9512F);">The fix</span>
+                <p style="font:400 17px/1.6 'Inter',sans-serif;color:#424467;margin:6px 0 0;">I merged them into one continuous flow: Travel DNA to Places to Itinerary to Live.<br>Preparing and living the trip now sit in the same journey, not in separate sections.</p>
+              </div>
+            </div>
+
+            <!-- screens -->
+            <div style="display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-top:44px;">
+              <div style="text-align:center;">
+                <div style="font:700 11px 'Inter',sans-serif;letter-spacing:.12em;color:#9a9aa6;margin-bottom:14px;">BEFORE</div>
+                <div style="width:220px;height:476px;margin:0 auto;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(255,255,255,0.12),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;position:relative;">
+                  <div style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:76px;height:19px;border-radius:10px;background:#000;z-index:2;"></div>
+                  <div style="position:absolute;left:-4px;top:70px;width:4px;height:17px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;left:-4px;top:97px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;left:-4px;top:135px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;right:-4px;top:105px;width:4px;height:45px;border-radius:0 2px 2px 0;background:#2c2c2e;"></div>
+                  <div style="width:100%;height:100%;border-radius:28px;overflow:hidden;background:#fff;">
+                    <img src="uploads/claude_1.png" alt="Before: Build and My Trip as separate tabs" style="width:100%;height:auto;display:block;" />
+                  </div>
+                </div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font:700 11px 'Inter',sans-serif;letter-spacing:.12em;color:var(--accent-deep,#C9512F);margin-bottom:14px;">AFTER</div>
+                <div style="width:220px;height:476px;margin:0 auto;border-radius:36px;background:#1c1c1e;box-shadow:0 0 0 1px rgba(232,113,79,0.4),0 44px 80px -20px rgba(0,0,0,0.55);padding:10px;position:relative;">
+                  <div style="position:absolute;left:50%;top:12px;transform:translateX(-50%);width:76px;height:19px;border-radius:10px;background:#000;z-index:2;"></div>
+                  <div style="position:absolute;left:-4px;top:70px;width:4px;height:17px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;left:-4px;top:97px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;left:-4px;top:135px;width:4px;height:28px;border-radius:2px 0 0 2px;background:#2c2c2e;"></div>
+                  <div style="position:absolute;right:-4px;top:105px;width:4px;height:45px;border-radius:0 2px 2px 0;background:#2c2c2e;"></div>
+                  <div style="width:100%;height:100%;border-radius:28px;overflow:hidden;background:#000;">
+                    <img src="uploads/Trip_cover.jpeg" alt="After: single continuous flow" style="width:100%;height:100%;object-fit:cover;display:block;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================ CONCLUSION (light) ============================ -->
+      <section data-screen-label="Conclusion" style="padding:64px 56px 128px;background:#F6F5FA;color:#171824;">
+        <div style="max-width:1120px;margin:0 auto;">
+          <div
+            style="margin-top:56px;display:flex;gap:40px;flex-wrap:wrap;align-items:center;justify-content:space-between;border-top:1px solid rgba(23,24,36,0.1);padding-top:48px;"
+            data-reveal>
+            <div>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <span
+                  style="display:inline-block;width:30px;height:30px;border-radius:50%;animation:blobSpin 9s linear infinite;background:radial-gradient(circle at 34% 28%,#F6BC70 0%,rgba(246,188,112,0) 55%),radial-gradient(circle at 72% 32%,#E8714F 0%,rgba(232,113,79,0) 58%),radial-gradient(circle at 64% 76%,#9678E4 0%,rgba(150,120,228,0) 60%),radial-gradient(circle at 30% 72%,#E46080 0%,rgba(228,96,128,0) 60%),#E8714F;"></span>
+                <span style="font:600 38px/1 'Newsreader',serif;color:#171824;">Mira</span>
+              </div>
+              <p
+                style="font:500 clamp(22px,3vw,34px)/1.2 'Newsreader',serif;font-style:italic;color:#171824;margin:20px 0 0;">
+                You see the world. Mira sees to the rest.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+              <div style="width:150px;height:150px;border-radius:18px;overflow:hidden;">
+                <img src="uploads/QR.png" alt="QR code"
+                  style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+              <p style="font:500 12px 'Inter';color:rgba(23,24,36,0.45);margin:12px 0 0;">Scan to try Mira</p>
+              <p style="font:400 11px 'Inter';color:rgba(23,24,36,0.35);margin:8px 0 0;">For fullscreen: Share → Add to
+                Home Screen</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div style="padding:36px 56px;background:#13141d;border-top:1px solid rgba(255,255,255,0.08);text-align:center;">
+        <span style="font:500 13px 'Inter';color:rgba(255,255,255,0.4);">Personal project · UX/UI Master · Talent
+          Garden</span>
+      </div>
+
+    </div>
+  </x-dc>
+  <script type="text/x-dc" data-dc-script
+    data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#E8714F&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;accentDeep&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9512F&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#E8714F',
+      accentDeep: this.props.accentDeep ?? '#C9512F',
+      rootRef: (el) => { this._root = el; },
+    };
+  }
+  componentDidMount() {
+    this._updateStyles();
+    this._init();
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.accent !== this.props.accent || prevProps.accentDeep !== this.props.accentDeep) {
+      this._updateStyles();
+    }
+  }
+  _updateStyles() {
+    if (this._root) {
+      this._root.style.setProperty('--accent', this.props.accent ?? '#E8714F');
+      this._root.style.setProperty('--accent-deep', this.props.accentDeep ?? '#C9512F');
+    }
+  }
+  _init() {
+    const root = this._root || document;
+    const bar = root.querySelector('[data-progress]');
+    const onScroll = () => {
+      if (!bar) return;
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const items = [...root.querySelectorAll('[data-reveal]')];
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach((el) => { el.style.opacity = '1'; });
+      return;
+    }
+    items.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+      el.style.transitionDelay = ((+el.getAttribute('data-reveal')) || 0) + 'ms';
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    items.forEach((el) => io.observe(el));
+  }
+}
+</script>
+</body>
+
+</html>
